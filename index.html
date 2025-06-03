@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Exo 2', sans-serif;
-            background: #0a0a0a;
+            background: #1a1a2e;
             color: #fff;
             overflow: hidden;
             line-height: 1.6;
@@ -30,7 +30,7 @@
             font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* Animated background - made darker for better contrast */
+        /* Animated background - brighter gradient */
         .bg-animation {
             position: fixed;
             width: 100%;
@@ -38,10 +38,10 @@
             top: 0;
             left: 0;
             z-index: -2;
-            background: linear-gradient(45deg, #0a0a0a, #1a0033, #2d004d, #1a0033, #0a0a0a);
+            background: linear-gradient(45deg, #ff006e, #4a0066, #8338ec, #3a86ff, #2d1b69);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            opacity: 0.7;
+            animation: gradientShift 10s ease infinite;
+            opacity: 0.4;
         }
 
         @keyframes gradientShift {
@@ -50,7 +50,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Pyramid-shaped geometric overlay */
+        /* Pyramid-shaped geometric overlay - more visible */
         .geometric-overlay {
             position: fixed;
             width: 100%;
@@ -58,7 +58,7 @@
             top: 0;
             left: 0;
             z-index: -1;
-            opacity: 0.08;
+            opacity: 0.15;
             background-image: 
                 /* Large pyramids */
                 linear-gradient(45deg, transparent 30%, #9d4edd 30%, #9d4edd 50%, transparent 50%),
@@ -82,9 +82,9 @@
             height: 100%;
             background-image: 
                 /* Pyramid silhouettes using conic gradients */
-                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #9d4edd15 45deg, transparent 90deg),
-                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #7209b715 45deg, transparent 90deg),
-                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #560bad15 45deg, transparent 90deg);
+                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #9d4edd25 45deg, transparent 90deg),
+                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #7209b725 45deg, transparent 90deg),
+                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #560bad25 45deg, transparent 90deg);
             background-size: 200px 150px, 150px 100px, 100px 75px;
             background-position: 10% 80%, 50% 70%, 80% 85%;
             background-repeat: no-repeat;
@@ -94,21 +94,21 @@
         @keyframes pyramidFloat {
             0% { 
                 transform: translateX(0) translateY(0); 
-                opacity: 0.08;
+                opacity: 0.15;
             }
             25% {
-                opacity: 0.10;
+                opacity: 0.12;
             }
             50% { 
                 transform: translateX(30px) translateY(-20px); 
-                opacity: 0.08;
+                opacity: 0.10;
             }
             75% {
-                opacity: 0.06;
+                opacity: 0.12;
             }
             100% { 
                 transform: translateX(0) translateY(0); 
-                opacity: 0.08;
+                opacity: 0.15;
             }
         }
 
@@ -119,7 +119,7 @@
             }
             50% { 
                 transform: translateX(50px); 
-                opacity: 1;
+                opacity: 0.5;
             }
         }
 
@@ -147,22 +147,22 @@
                     60deg,
                     transparent,
                     transparent 40px,
-                    rgba(157, 78, 221, 0.03) 40px,
-                    rgba(157, 78, 221, 0.03) 80px
+                    rgba(157, 78, 221, 0.05) 40px,
+                    rgba(157, 78, 221, 0.05) 80px
                 ),
                 repeating-linear-gradient(
                     -60deg,
                     transparent,
                     transparent 40px,
-                    rgba(114, 9, 183, 0.03) 40px,
-                    rgba(114, 9, 183, 0.03) 80px
+                    rgba(114, 9, 183, 0.05) 40px,
+                    rgba(114, 9, 183, 0.05) 80px
                 ),
                 repeating-linear-gradient(
                     0deg,
                     transparent,
                     transparent 69px,
-                    rgba(224, 170, 255, 0.02) 69px,
-                    rgba(224, 170, 255, 0.02) 138px
+                    rgba(224, 170, 255, 0.03) 69px,
+                    rgba(224, 170, 255, 0.03) 138px
                 );
             animation: pyramidRotate 60s linear infinite;
         }
@@ -174,7 +174,7 @@
 
         .progress-bar {
             height: 4px;
-            background: rgba(50, 50, 50, 0.8);
+            background: rgba(100, 100, 100, 0.8);
             position: relative;
             z-index: 1000;
             overflow: hidden;
@@ -203,7 +203,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+            background: radial-gradient(ellipse at center, transparent 90%, rgba(26, 26, 46, 0.4) 10%);
             pointer-events: none;
             z-index: 10;
         }
@@ -218,10 +218,11 @@
             align-items: center;
             padding: 80px;
             opacity: 0;
-            transform: translateX(100%) scale(0.8);
-            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.08) 0%, rgba(0, 0, 0, 0.95) 70%);
+            transform: translateX(100%) scale(0.8) rotateY(45deg);
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.12) 0%, rgba(45, 27, 105, 0.6) 70%);
             z-index: 2;
+            perspective: 1000px;
         }
 
         .slide::before {
@@ -231,17 +232,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(26, 26, 46, 0.3);
             z-index: -1;
         }
 
         .slide.active {
             opacity: 1;
-            transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1) rotateY(0);
         }
 
         .slide.prev {
-            transform: translateX(-100%) scale(0.8);
+            transform: translateX(-100%) scale(0.8) rotateY(-45deg);
         }
 
         /* Ensure all text has good contrast */
@@ -315,14 +316,14 @@
 
         /* Extra styling for specific elements */
         .slide ul, .slide ol {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(40, 40, 60, 0.3);
             padding: 20px 20px 20px 40px;
             border-radius: 15px;
             backdrop-filter: blur(5px);
         }
 
         .slide > p {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(50, 50, 70, 0.4);
             padding: 15px 25px;
             border-radius: 10px;
             backdrop-filter: blur(5px);
@@ -331,7 +332,7 @@
 
         /* Enhanced block quotes and example boxes */
         .slide blockquote, .exampleblock, .alertblock {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(60, 60, 80, 0.5);
             border-left: 4px solid #e0aaff;
             padding: 20px;
             margin: 20px 0;
@@ -429,7 +430,7 @@
 
         .title-slide {
             text-align: center;
-            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.15) 0%, rgba(0, 0, 0, 0.98) 50%);
+            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.2) 0%, rgba(45, 27, 105, 0.7) 50%);
         }
 
         .title-slide h1 {
@@ -447,7 +448,7 @@
         }
 
         .two-column, .three-column {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(50, 50, 70, 0.4);
             padding: 20px;
             border-radius: 20px;
             backdrop-filter: blur(5px);
@@ -463,7 +464,7 @@
         }
 
         button {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.5), rgba(114, 9, 183, 0.4));
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.6), rgba(114, 9, 183, 0.5));
             border: 2px solid #e0aaff;
             color: #fff;
             padding: 15px 30px;
@@ -503,7 +504,7 @@
             transform: scale(1.05);
             box-shadow: 0 0 30px rgba(157, 78, 221, 0.8), inset 0 0 15px rgba(224, 170, 255, 0.3);
             border-color: #fff;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.7), rgba(114, 9, 183, 0.6));
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.8), rgba(114, 9, 183, 0.7));
         }
 
         .slide-number {
@@ -513,7 +514,7 @@
             font-size: 1.2em;
             font-family: 'Orbitron', monospace;
             color: #fff;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(114, 9, 183, 0.3));
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.5), rgba(114, 9, 183, 0.4));
             padding: 12px 25px;
             border-radius: 30px;
             backdrop-filter: blur(10px);
@@ -530,7 +531,7 @@
             width: 100%;
             max-width: 1400px;
             align-items: center;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(60, 60, 80, 0.4);
             padding: 30px;
             border-radius: 20px;
             backdrop-filter: blur(5px);
@@ -542,14 +543,14 @@
             gap: 30px;
             width: 100%;
             max-width: 1400px;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(60, 60, 80, 0.4);
             padding: 30px;
             border-radius: 20px;
             backdrop-filter: blur(5px);
         }
 
         .highlight {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.25), rgba(114, 9, 183, 0.15));
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.35), rgba(114, 9, 183, 0.25));
             padding: 30px;
             border-radius: 20px;
             border: 2px solid #9d4edd;
@@ -584,7 +585,7 @@
             border-collapse: separate;
             border-spacing: 0;
             margin: 30px 0;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(40, 40, 60, 0.8);
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 0 40px rgba(157, 78, 221, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.8);
@@ -608,7 +609,7 @@
             border-bottom: 1px solid rgba(157, 78, 221, 0.3);
             font-size: 0.95em;
             color: #f5f5f5;
-            background: rgba(20, 20, 20, 0.8);
+            background: rgba(50, 50, 70, 0.6);
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
         }
 
@@ -617,13 +618,13 @@
         }
 
         .futuristic-table tbody tr:hover {
-            background: rgba(157, 78, 221, 0.2);
+            background: rgba(157, 78, 221, 0.3);
             transform: scale(1.02);
             box-shadow: 0 5px 20px rgba(157, 78, 221, 0.4);
         }
 
         .futuristic-table tbody tr:hover td {
-            background: rgba(157, 78, 221, 0.2);
+            background: rgba(157, 78, 221, 0.3);
             color: #fff;
         }
 
@@ -634,7 +635,7 @@
             text-align: center;
             margin: 40px 0;
             padding: 30px;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(224, 170, 255, 0.2));
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(224, 170, 255, 0.3));
             border-radius: 20px;
             border: 2px solid #e0aaff;
             position: relative;
@@ -644,7 +645,7 @@
         }
 
         .stats-box {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(114, 9, 183, 0.25));
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(114, 9, 183, 0.35));
             border: 2px solid #e0aaff;
             border-radius: 20px;
             padding: 30px;
@@ -762,7 +763,7 @@
             width: 25px;
             height: 25px;
             background: #9d4edd;
-            border: 4px solid #1a0033;
+            border: 4px solid #2d1b69;
             border-radius: 50%;
             margin: 0 auto 20px;
             box-shadow: 0 0 20px rgba(157, 78, 221, 0.8);
@@ -809,7 +810,7 @@
         }
 
         .tech-card {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(114, 9, 183, 0.15));
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(114, 9, 183, 0.25));
             border: 2px solid #9d4edd;
             border-radius: 20px;
             padding: 30px;
@@ -823,10 +824,10 @@
         .tech-card::before {
             content: "";
             position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
+            top: -80%;
+            left: -80%;
+            width: 90%;
+            height: 90%;
             background: radial-gradient(circle, rgba(157, 78, 221, 0.4), transparent);
             transition: all 0.5s ease;
         }
@@ -840,7 +841,7 @@
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 20px 40px rgba(157, 78, 221, 0.5);
             border-color: #fff;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.35), rgba(114, 9, 183, 0.25));
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.45), rgba(114, 9, 183, 0.35));
         }
 
         .tech-card h3 {
@@ -861,17 +862,77 @@
             from { 
                 text-shadow: 0 0 10px rgba(224, 170, 255, 0.8), 
                              0 0 20px rgba(224, 170, 255, 0.6),
-                             0 2px 4px rgba(0, 0, 0, 0.9); 
+                             0 2px 4px rgba(161, 9, 9, 0.9); 
             }
             to { 
-                text-shadow: 0 0 20px rgba(224, 170, 255, 1), 
-                             0 0 40px rgba(157, 78, 221, 0.8),
+                text-shadow: 0 0 20px rgb(255, 251, 0), 
+                             0 0 40px rgba(255, 1, 217, 0.8),
                              0 2px 4px rgba(0, 0, 0, 0.9); 
             }
         }
 
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 0 40px currentColor;
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px currentColor;
+            }
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% {
+                transform: scale(1.02);
+                filter: brightness(1.2);
+            }
+        }
+
+        @keyframes neonGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px #fff, 0 0 40px #ff006e, 0 0 60px #8338ec, inset 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px #fff, 0 0 60px #ff006e, 0 0 90px #8338ec, inset 0 0 30px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1.1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
         /* Particle styling to ensure they don't interfere */
-        div[style*="position: fixed"][style*="width: 2px"] {
+        div[style*="position: fixed"][style*="border-radius: 50%"] {
             pointer-events: none !important;
             z-index: 0 !important;
         }
@@ -883,7 +944,7 @@
             }
             
             .two-column, .three-column, .slide ul, .slide > p {
-                background: rgba(0, 0, 0, 0.8) !important;
+                background: rgba(60, 60, 80, 0.8) !important;
             }
         }
 
@@ -894,7 +955,7 @@
             p, li { font-size: 1.1em; }
             .slide { 
                 padding: 30px; 
-                background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.1) 0%, rgba(0, 0, 0, 0.98) 60%);
+                background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.15) 0%, rgba(45, 27, 105, 0.7) 60%);
             }
             .two-column, .three-column { 
                 grid-template-columns: 1fr; 
@@ -949,13 +1010,13 @@
         <div class="slides-wrapper">
             <!-- Slide 1: Title -->
             <div class="slide active title-slide">
-                <h1 class="glow-text">Artificial Intelligence for Egyptology</h1>
-                <p>Current State and Possibilities</p>
-                <div class="image-placeholder" style="margin-top: 200px;">
-                    <span><img src="sitting.jpg" height="50%"></span>
+                <h1 class="glow-text" style="font-size: 7em; animation: textGlow 2s ease-in-out infinite, float 4s ease-in-out infinite;">Artificial Intelligence for Egyptology</h1>
+                <h2 style="animation: slideIn 1.5s ease-out; background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto; animation: gradientFlow 3s linear infinite;">Current State and Possibilities</h2>
+                <div class="image-placeholder" style="margin-top: 60px; border: 3px solid #fff; animation: neonGlow 3s infinite;">
+                    <span><img src="sitting.jpg" height="300px"></span>
                 </div>
-                <p style="margin-top: 40px; font-size: 1.2em;">University of Tsukuba</p>
-                <p style="margin-top: 30px; font-size: 1em; color: #888;">Presenter: So Miyagawa</p>
+                <h3 style="margin-top: 20px; font-size: 3.5em; animation: pulseGlow 2s infinite;">University of Tsukuba / 筑波大学</h3>
+                <h1 style="margin-top: 30px; font-size: 5.5em; color: #fff; animation: slideIn 2s ease-out;">So Miyagawa / 宮川創</h1>
             </div>
 
             <!-- Slide 2: Overview -->
@@ -1846,23 +1907,23 @@
 
             <!-- Slide 38: Egypt's AI Strategy -->
             <div class="slide">
-                <h2>Egypt's National AI Strategy</h2>
+                <h2>Egypt's Vision for AI Leadership</h2>
                 <div class="three-column">
-                    <div class="stats-box">
-                        <div class="stats-number">30,000</div>
-                        <div class="stats-label">AI Professionals by 2030</div>
+                    <div class="stats-box" style="background: linear-gradient(135deg, #ff006e, #8338ec); animation: pulseGlow 3s infinite;">
+                        <div class="stats-number" style="font-size: 2.5em;">🎓</div>
+                        <div class="stats-label">Massive AI Education Initiative</div>
                     </div>
-                    <div class="stats-box">
-                        <div class="stats-number">6,000</div>
-                        <div class="stats-label">Annual Publications</div>
+                    <div class="stats-box" style="background: linear-gradient(135deg, #3a86ff, #8338ec); animation: pulseGlow 3s infinite 0.5s;">
+                        <div class="stats-number" style="font-size: 2.5em;">📚</div>
+                        <div class="stats-label">Research Excellence Centers</div>
                     </div>
-                    <div class="stats-box">
-                        <div class="stats-number">3</div>
-                        <div class="stats-label">Heritage AI Hubs</div>
+                    <div class="stats-box" style="background: linear-gradient(135deg, #f72585, #7209b7); animation: pulseGlow 3s infinite 1s;">
+                        <div class="stats-number" style="font-size: 2.5em;">🏛️</div>
+                        <div class="stats-label">Heritage AI Innovation</div>
                     </div>
                 </div>
-                <div class="image-placeholder" style="margin-top: 30px;">
-                    <span>[National Strategy Roadmap]</span>
+                <div class="key-point" style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.4), rgba(131, 56, 236, 0.4)); animation: breathe 4s infinite;">
+                    "Transforming Egypt into a Global AI Powerhouse"
                 </div>
             </div>
 
@@ -1907,19 +1968,28 @@
 
             <!-- Slide 40: Capacity Building -->
             <div class="slide">
-                <h2>Building Egypt's AI Workforce</h2>
-                <div class="two-column">
-                    <div class="image-placeholder">
-                        <span>[Training Programs]</span>
+                <h2>Empowering Egypt's Digital Future</h2>
+                <div class="highlight" style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.5), rgba(131, 56, 236, 0.5)); border: 3px solid #fff; animation: neonGlow 2s infinite;">
+                    <h3 style="text-align: center; font-size: 2.5em; color: #fff; text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);">
+                        The AI Revolution Begins Now
+                    </h3>
+                </div>
+                <div class="tech-grid" style="margin-top: 40px;">
+                    <div class="tech-card" style="background: linear-gradient(135deg, rgba(247, 37, 133, 0.4), rgba(114, 9, 183, 0.4)); transform: scale(1.1); animation: float 3s ease-in-out infinite;">
+                        <h3 style="font-size: 1.8em;">🚀 Accelerated Training</h3>
+                        <p>Rapid skill development programs</p>
                     </div>
-                    <div>
-                        <h3>Initiatives</h3>
-                        <ul>
-                            <li>DECI: 3,000 trainees</li>
-                            <li>FWD: 5,000 professionals</li>
-                            <li>Joint degree programs</li>
-                            <li>International fellowships</li>
-                        </ul>
+                    <div class="tech-card" style="background: linear-gradient(135deg, rgba(58, 134, 255, 0.4), rgba(131, 56, 236, 0.4)); transform: scale(1.1); animation: float 3s ease-in-out infinite 0.5s;">
+                        <h3 style="font-size: 1.8em;">🌍 Global Partnerships</h3>
+                        <p>International collaboration networks</p>
+                    </div>
+                    <div class="tech-card" style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.4), rgba(157, 78, 221, 0.4)); transform: scale(1.1); animation: float 3s ease-in-out infinite 1s;">
+                        <h3 style="font-size: 1.8em;">💡 Innovation Hubs</h3>
+                        <p>Centers of excellence nationwide</p>
+                    </div>
+                    <div class="tech-card" style="background: linear-gradient(135deg, rgba(131, 56, 236, 0.4), rgba(58, 134, 255, 0.4)); transform: scale(1.1); animation: float 3s ease-in-out infinite 1.5s;">
+                        <h3 style="font-size: 1.8em;">🎯 Future-Ready</h3>
+                        <p>Next-generation workforce</p>
                     </div>
                 </div>
             </div>
@@ -2183,25 +2253,29 @@
         function createParticle() {
             try {
                 const particle = document.createElement('div');
+                const colors = ['#ff006e', '#8338ec', '#3a86ff', '#f72585', '#e0aaff'];
+                const size = Math.random() * 4 + 2;
+                
                 particle.style.position = 'fixed';
-                particle.style.width = '2px';
-                particle.style.height = '2px';
-                particle.style.background = '#9d4edd';
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
                 particle.style.borderRadius = '50%';
                 particle.style.pointerEvents = 'none';
-                particle.style.opacity = Math.random() * 0.5 + 0.3;
+                particle.style.opacity = Math.random() * 0.7 + 0.3;
                 particle.style.left = Math.random() * window.innerWidth + 'px';
                 particle.style.top = window.innerHeight + 'px';
                 particle.style.zIndex = '0';
+                particle.style.boxShadow = `0 0 ${size * 2}px currentColor`;
                 document.body.appendChild(particle);
 
-                const duration = Math.random() * 3000 + 2000;
+                const duration = Math.random() * 4000 + 3000;
                 const animation = particle.animate([
                     { transform: 'translateY(0) translateX(0)', opacity: particle.style.opacity },
-                    { transform: `translateY(-${window.innerHeight}px) translateX(${(Math.random() - 0.5) * 100}px)`, opacity: '0' }
+                    { transform: `translateY(-${window.innerHeight}px) translateX(${(Math.random() - 0.5) * 200}px) rotate(${Math.random() * 360}deg)`, opacity: '0' }
                 ], {
                     duration: duration,
-                    easing: 'linear'
+                    easing: 'ease-out'
                 });
                 
                 animation.onfinish = () => {
@@ -2216,10 +2290,10 @@
 
         // Create particles with error handling
         const particleInterval = setInterval(() => {
-            if (document.body.querySelectorAll('div[style*="position: fixed"]').length < 20) {
+            if (document.body.querySelectorAll('div[style*="position: fixed"][style*="border-radius: 50%"]').length < 25) {
                 createParticle();
             }
-        }, 500);
+        }, 400);
 
         // Cleanup function
         window.addEventListener('beforeunload', () => {
