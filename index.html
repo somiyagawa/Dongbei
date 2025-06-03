@@ -50,6 +50,7 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Pyramid-shaped geometric overlay */
         .geometric-overlay {
             position: fixed;
             width: 100%;
@@ -57,20 +58,118 @@
             top: 0;
             left: 0;
             z-index: -1;
-            opacity: 0.05;
+            opacity: 0.08;
             background-image: 
-                linear-gradient(60deg, #9d4edd 25%, transparent 25%),
-                linear-gradient(-60deg, #7209b7 25%, transparent 25%),
-                linear-gradient(60deg, transparent 75%, #560bad 75%),
-                linear-gradient(-60deg, transparent 75%, #480ca8 75%);
-            background-size: 50px 87px;
-            background-position: 0 0, 0 0, 25px 43px, 25px 43px;
-            animation: geometricMove 20s linear infinite;
+                /* Large pyramids */
+                linear-gradient(45deg, transparent 30%, #9d4edd 30%, #9d4edd 50%, transparent 50%),
+                linear-gradient(-45deg, transparent 30%, #7209b7 30%, #7209b7 50%, transparent 50%),
+                /* Medium pyramids */
+                linear-gradient(45deg, transparent 40%, #560bad 40%, #560bad 45%, transparent 45%),
+                linear-gradient(-45deg, transparent 40%, #480ca8 40%, #480ca8 45%, transparent 45%),
+                /* Small pyramids */
+                linear-gradient(60deg, transparent 48%, #e0aaff 48%, #e0aaff 52%, transparent 52%),
+                linear-gradient(-60deg, transparent 48%, #c77dff 48%, #c77dff 52%, transparent 52%);
+            background-size: 120px 120px, 120px 120px, 80px 80px, 80px 80px, 40px 40px, 40px 40px;
+            background-position: 0 0, 60px 0, 30px 30px, 70px 30px, 15px 60px, 35px 60px;
+            animation: pyramidFloat 30s linear infinite;
         }
 
-        @keyframes geometricMove {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50px); }
+        /* Additional pyramid silhouettes */
+        .geometric-overlay::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                /* Pyramid silhouettes using conic gradients */
+                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #9d4edd15 45deg, transparent 90deg),
+                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #7209b715 45deg, transparent 90deg),
+                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #560bad15 45deg, transparent 90deg);
+            background-size: 200px 150px, 150px 100px, 100px 75px;
+            background-position: 10% 80%, 50% 70%, 80% 85%;
+            background-repeat: no-repeat;
+            animation: pyramidDrift 40s ease-in-out infinite;
+        }
+
+        @keyframes pyramidFloat {
+            0% { 
+                transform: translateX(0) translateY(0); 
+                opacity: 0.08;
+            }
+            25% {
+                opacity: 0.10;
+            }
+            50% { 
+                transform: translateX(30px) translateY(-20px); 
+                opacity: 0.08;
+            }
+            75% {
+                opacity: 0.06;
+            }
+            100% { 
+                transform: translateX(0) translateY(0); 
+                opacity: 0.08;
+            }
+        }
+
+        @keyframes pyramidDrift {
+            0%, 100% { 
+                transform: translateX(0); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateX(50px); 
+                opacity: 1;
+            }
+        }
+
+        /* Pyramid background pattern - additional layer */
+        .pyramid-pattern {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .pyramid-pattern::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                /* Create repeating pyramid pattern */
+                repeating-linear-gradient(
+                    60deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(157, 78, 221, 0.03) 40px,
+                    rgba(157, 78, 221, 0.03) 80px
+                ),
+                repeating-linear-gradient(
+                    -60deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(114, 9, 183, 0.03) 40px,
+                    rgba(114, 9, 183, 0.03) 80px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 69px,
+                    rgba(224, 170, 255, 0.02) 69px,
+                    rgba(224, 170, 255, 0.02) 138px
+                );
+            animation: pyramidRotate 60s linear infinite;
+        }
+
+        @keyframes pyramidRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .progress-bar {
@@ -839,6 +938,7 @@
 </head>
 <body>
     <div class="bg-animation"></div>
+    <div class="pyramid-pattern"></div>
     <div class="geometric-overlay"></div>
     
     <div class="presentation-container">
