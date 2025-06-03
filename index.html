@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Egyptology: Bridging Millennia Through Computational Innovation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(45deg, #0a0a0a, #1a0033, #2d004d, #1a0033, #0a0a0a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .geometric-overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(60deg, #9d4edd 25%, transparent 25%),
+                linear-gradient(-60deg, #7209b7 25%, transparent 25%),
+                linear-gradient(60deg, transparent 75%, #560bad 75%),
+                linear-gradient(-60deg, transparent 75%, #480ca8 75%);
+            background-size: 50px 87px;
+            background-position: 0 0, 0 0, 25px 43px, 25px 43px;
+            animation: geometricMove 20s linear infinite;
+        }
+
+        @keyframes geometricMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50px); }
+        }
+
+        .progress-bar {
+            height: 3px;
+            background: rgba(157, 78, 221, 0.2);
+            position: relative;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #7209b7, #9d4edd, #c77dff);
+            transition: width 0.5s ease;
+            width: 0%;
+            box-shadow: 0 0 10px #9d4edd, 0 0 20px #9d4edd;
+        }
+
+        .slides-wrapper {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            opacity: 0;
+            transform: translateX(100%) scale(0.8);
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%) scale(0.8);
+        }
+
+        h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #c77dff, #9d4edd, #7209b7, #e0aaff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 3s ease infinite;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.5));
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #e0aaff;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(224, 170, 255, 0.5);
+        }
+
+        h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #c77dff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p, li {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            max-width: 1000px;
+            text-align: left;
+            color: #e0e0e0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateX(10px);
+        }
+
+        li::before {
+            content: "⟐";
+            position: absolute;
+            left: 0;
+            color: #9d4edd;
+            font-size: 1.5em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(114, 9, 183, 0.2));
+            border: 2px solid #9d4edd;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.3), inset 0 0 30px rgba(157, 78, 221, 0.1);
+        }
+
+        .image-placeholder::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #9d4edd, #7209b7, #e0aaff, #c77dff);
+            border-radius: 20px;
+            opacity: 0.8;
+            z-index: -1;
+            animation: borderRotate 4s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .image-placeholder span {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5em;
+            color: #c77dff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .small-image {
+            width: 300px;
+            height: 200px;
+            max-width: 100%;
+        }
+
+        .title-slide {
+            text-align: center;
+        }
+
+        .title-slide h1 {
+            font-size: 5em;
+            margin-bottom: 40px;
+        }
+
+        .title-slide p {
+            font-size: 1.8em;
+            text-align: center;
+            color: #c77dff;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        button {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(114, 9, 183, 0.3));
+            border: 2px solid #9d4edd;
+            color: #e0aaff;
+            padding: 15px 30px;
+            font-size: 1em;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(224, 170, 255, 0.3), transparent);
+            transition: width 0.3s, height 0.3s;
+            transform: translate(-50%, -50%);
+        }
+
+        button:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.6);
+            border-color: #e0aaff;
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            font-size: 1.2em;
+            font-family: 'Orbitron', monospace;
+            color: #c77dff;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(114, 9, 183, 0.2));
+            padding: 12px 25px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(157, 78, 221, 0.5);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            width: 100%;
+            max-width: 1400px;
+            align-items: center;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(114, 9, 183, 0.1));
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid #7209b7;
+            margin: 20px 0;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.2);
+        }
+
+        .highlight::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #9d4edd, transparent, #7209b7);
+            border-radius: 20px;
+            opacity: 0.5;
+            z-index: -1;
+            animation: highlightGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes highlightGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .futuristic-table {
+            width: 100%;
+            max-width: 1200px;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            background: rgba(13, 13, 13, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(157, 78, 221, 0.3);
+        }
+
+        .futuristic-table th {
+            background: linear-gradient(135deg, #7209b7, #560bad);
+            color: #fff;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1em;
+            font-family: 'Orbitron', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .futuristic-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            font-size: 0.95em;
+            color: #e0e0e0;
+        }
+
+        .futuristic-table tr {
+            transition: all 0.3s ease;
+        }
+
+        .futuristic-table tbody tr:hover {
+            background: rgba(157, 78, 221, 0.1);
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.3);
+        }
+
+        .key-point {
+            font-size: 1.6em;
+            color: #e0aaff;
+            font-weight: 600;
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(224, 170, 255, 0.1));
+            border-radius: 20px;
+            border: 2px solid #9d4edd;
+            position: relative;
+            text-shadow: 0 0 20px rgba(224, 170, 255, 0.5);
+        }
+
+        .stats-box {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(114, 9, 183, 0.2));
+            border: 2px solid #9d4edd;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stats-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(157, 78, 221, 0.4);
+        }
+
+        .stats-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 3em;
+            font-weight: 900;
+            color: #e0aaff;
+            text-shadow: 0 0 20px rgba(224, 170, 255, 0.8);
+        }
+
+        .stats-label {
+            font-size: 1.1em;
+            color: #c77dff;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #9d4edd, #7209b7);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #9d4edd;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.8);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 30px 0;
+        }
+
+        .tech-card {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(114, 9, 183, 0.1));
+            border: 2px solid #7209b7;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card::before {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .tech-card:hover::before {
+            top: -150%;
+            left: -150%;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(157, 78, 221, 0.4);
+            border-color: #e0aaff;
+        }
+
+        .glow-text {
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px rgba(224, 170, 255, 0.5); }
+            to { text-shadow: 0 0 20px rgba(224, 170, 255, 0.8), 0 0 30px rgba(157, 78, 221, 0.6); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.5em; }
+            p, li { font-size: 1.1em; }
+            .slide { padding: 30px; }
+            .two-column, .three-column { grid-template-columns: 1fr; }
+            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; }
+            .timeline::before { left: 20px; }
+            .timeline-dot { left: 10px !important; right: auto !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="geometric-overlay"></div>
+    
+    <div class="presentation-container">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        
+        <div class="slides-wrapper">
+            <!-- Slide 1: Title -->
+            <div class="slide active title-slide">
+                <h1 class="glow-text">AI in Egyptology</h1>
+                <p>Bridging Millennia Through Computational Innovation</p>
+                <div class="image-placeholder" style="margin-top: 50px;">
+                    <span>[Hero Image: AI meets Ancient Egypt]</span>
+                </div>
+                <p style="margin-top: 40px; font-size: 1.2em;">Past Achievements • Current Frontiers • Future Horizons</p>
+                <p style="margin-top: 30px; font-size: 1em; color: #888;">Presenter: [Your Name]</p>
+            </div>
+
+            <!-- Slide 2: Overview -->
+            <div class="slide">
+                <h2>Presentation Overview</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>Part I</h3>
+                        <p>Genesis of Digital Egyptology</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Part II</h3>
+                        <p>Current AI Applications</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Part III</h3>
+                        <p>Ethical Considerations</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Part IV</h3>
+                        <p>Future Horizons</p>
+                    </div>
+                </div>
+                <div class="key-point">
+                    "Where Ancient Wisdom Meets Modern Intelligence"
+                </div>
+            </div>
+
+            <!-- Slide 3: Why AI + Egyptology -->
+            <div class="slide">
+                <h2>Why AI Meets Ancient Egypt</h2>
+                <div class="two-column">
+                    <div>
+                        <ul>
+                            <li><strong>Scale of Data:</strong> Millions of hieroglyphic signs</li>
+                            <li><strong>Complexity:</strong> Pattern recognition beyond human capacity</li>
+                            <li><strong>Engagement:</strong> Global accessibility through technology</li>
+                            <li><strong>Innovation:</strong> Interdisciplinary breakthroughs</li>
+                        </ul>
+                    </div>
+                    <div class="image-placeholder">
+                        <span>[Data Visualization]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: The Challenge -->
+            <div class="slide">
+                <h2>The Egyptological Challenge</h2>
+                <div class="three-column">
+                    <div class="stats-box">
+                        <div class="stats-number">3,000+</div>
+                        <div class="stats-label">Years of History</div>
+                    </div>
+                    <div class="stats-box">
+                        <div class="stats-number">700+</div>
+                        <div class="stats-label">Hieroglyphic Signs</div>
+                    </div>
+                    <div class="stats-box">
+                        <div class="stats-number">Millions</div>
+                        <div class="stats-label">Artifacts & Texts</div>
+                    </div>
+                </div>
+                <div class="image-placeholder" style="margin-top: 40px;">
+                    <span>[Egyptian Artifacts Collage]</span>
+                </div>
+            </div>
+
+            <!-- Slide 5: Digital Genesis Timeline -->
+            <div class="slide">
+                <h2>Genesis: The Digital Foundation</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <h3>1897</h3>
+                        <p>Erman's Lexicon begins</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <h3>1984</h3>
+                        <p>Manuel de Codage standardization</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <h3>1990s</h3>
+                        <p>Digital corpus emergence</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <h3>2000s</h3>
+                        <p>Giza Archives digitization</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: TLA Deep Dive -->
+            <div class="slide">
+                <h2>Thesaurus Linguae Aegyptiae</h2>
+                <div class="two-column">
+                    <div class="highlight">
+                        <h3>The Foundation</h3>
+                        <ul>
+                            <li>1+ million lemmatized tokens</li>
+                            <li>Hieroglyphic, Hieratic, Demotic, Coptic</li>
+                            <li>Morphological annotations</li>
+                            <li>API for AI training</li>
+                        </ul>
+                    </div>
+                    <div class="image-placeholder">
+                        <span>[TLA Interface Screenshot]</span>
+                    </div>
+                </div>
+                <p class="key-point">"The backbone of AI-driven Egyptological NLP"</p>
+            </div>
+
+            <!-- Slide 7: Giza Project -->
+            <div class="slide">
+                <h2>The Giza Project</h2>
+                <div class="image-placeholder" style="height: 300px;">
+                    <span>[Giza 3D Visualization]</span>
+                </div>
+                <div class="three-column" style="margin-top: 30px;">
+                    <div class="tech-card">
+                        <h3>Archives</h3>
+                        <p>Millions of photos & documents</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>3D Models</h3>
+                        <p>Photorealistic reconstructions</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Education</h3>
+                        <p>Giza@School modules</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Manuel de Codage -->
+            <div class="slide">
+                <h2>Manuel de Codage: The Digital Rosetta</h2>
+                <div class="two-column">
+                    <div class="image-placeholder">
+                        <span>[Encoding Example]</span>
+                    </div>
+                    <div>
+                        <h3>Why It Matters</h3>
+                        <ul>
+                            <li>Standardized hieroglyph encoding</li>
+                            <li>ASCII representation system</li>
+                            <li>Foundation for digital processing</li>
+                            <li>Enables AI text analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Early Challenges -->
+            <div class="slide">
+                <h2>Early Digital Challenges</h2>
+                <div class="highlight">
+                    <div class="two-column">
+                        <div>
+                            <h3>Technical Barriers</h3>
+                            <ul>
+                                <li>Limited computing power</li>
+                                <li>Fragmented databases</li>
+                                <li>Lack of standards</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Human Factors</h3>
+                            <ul>
+                                <li>Programming skills gap</li>
+                                <li>Funding scarcity</li>
+                                <li>Interdisciplinary divide</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-placeholder small-image" style="margin: 30px auto;">
+                    <span>[Early Computer Systems]</span>
+                </div>
+            </div>
+
+            <!-- Slide 10: Current AI Era -->
+            <div class="slide">
+                <h2>The Current AI Revolution</h2>
+                <div class="image-placeholder" style="height: 350px;">
+                    <span>[AI Network Visualization]</span>
+                </div>
+                <div class="key-point" style="margin-top: 30px;">
+                    "From Simple Queries to Deep Learning"
+                </div>
+            </div>
+
+            <!-- Slide 11: AI Applications Overview -->
+            <div class="slide">
+                <h2>Four Pillars of AI Egyptology</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>Scripts</h3>
+                        <p>Hieroglyph recognition & translation</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Artifacts</h3>
+                        <p>Classification & reconstruction</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Sites</h3>
+                        <p>Discovery & mapping</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Engagement</h3>
+                        <p>VR/AR experiences</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Fabricius -->
+            <div class="slide">
+                <h2>Google's Fabricius</h2>
+                <div class="two-column">
+                    <div class="image-placeholder">
+                        <span>[Fabricius Interface]</span>
+                    </div>
+                    <div>
+                        <h3>Features</h3>
+                        <ul>
+                            <li>CNN-based sign recognition</li>
+                            <li>Expert workbench</li>
+                            <li>Interactive learning mode</li>
+                            <li>Gardiner code output</li>
+                        </ul>
+                        <div class="stats-box" style="margin-top: 30px;">
+                            <div class="stats-number">95%+</div>
+                            <div class="stats-label">Accuracy on Clear Signs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Digital Pyramid Texts -->
+            <div class="slide">
+                <h2>Digital Pyramid Texts Project</h2>
+                <div class="highlight">
+                    <h3>Brown University Innovation</h3>
+                    <div class="two-column" style="margin-top: 20px;">
+                        <div>
+                            <ul>
+                                <li>600,000+ hieroglyphic signs</li>
+                                <li>Advanced NLP queries</li>
+                                <li>Context-based search</li>
+                                <li>Open-source platform</li>
+                            </ul>
+                        </div>
+                        <div class="image-placeholder small-image">
+                            <span>[Query Interface]</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="key-point">"Democratizing access to earliest religious texts"</p>
+            </div>
+
+            <!-- Slide 14: Neural Networks -->
+            <div class="slide">
+                <h2>Neural Network Architectures</h2>
+                <div class="two-column">
+                    <div class="image-placeholder">
+                        <span>[CNN Architecture Diagram]</span>
+                    </div>
+                    <div>
+                        <h3>Models in Use</h3>
+                        <ul>
+                            <li>GlyphNet & ATCNet</li>
+                            <li>ResNet variants</li>
+                            <li>Transformer adaptations</li>
+                            <li>Ensemble approaches</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="three-column" style="margin-top: 40px;">
+                    <div class="stats-box">
+                        <div class="stats-number">97%</div>
+                        <div class="stats-label">Sign Recognition</div>
+                    </div>
+                    <div class="stats-box">
+                        <div class="stats-number">70%</div>
+                        <div class="stats-label">Translation BLEU</div>
+                    </div>
+                    <div class="stats-box">
+                        <div class="stats-number">44%</div>
+                        <div class="stats-label">Gap Prediction</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 15: THOTH AI Introduction -->
+            <div class="slide">
+                <h2>THOTH AI: Breakthrough Platform</h2>
+                <div class="image-placeholder" style="height: 400px;">
+                    <span>[THOTH AI Interface Demo]</span>
+                </div>
+                <div class="highlight" style="margin-top: 30px;">
+                    <p style="text-align: center; font-size: 1.3em;">
+                        <strong>Developer:</strong> Prof. So Miyagawa, University of Tsukuba<br>
+                        <strong>Technology:</strong> Claude 3.5 Sonnet + RAG Architecture
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 16: THOTH AI Features -->
+            <div class="slide">
+                <h2>THOTH AI Capabilities</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>Multi-Script</h3>
+                        <p>Hieroglyphic to Coptic</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Translation</h3>
+                        <p>Context-aware output</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Education</h3>
+                        <p>Interactive lessons</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Multilingual</h3>
+                        <p>English, Japanese, Arabic</p>
+                    </div>
+                </div>
+                <div class="key-point">
+                    "Bridging all Egyptian language phases in one interface"
+                </div>
+            </div>
+
+            <!-- Slide 17: Computer Vision -->
+            <div class="slide">
+                <h2>AI in Artifact Analysis</h2>
+                <div class="two-column">
+                    <div>
+                        <h3>Computer Vision Applications</h3>
+                        <ul>
+                            <li>Artifact classification</li>
+                            <li>Period identification</li>
+                            <li>Style analysis</li>
+                            <li>Fragment reconstruction</li>
+                        </ul>
+                    </div>
+                    <div class="image-placeholder">
+                        <span>[Artifact Recognition Demo]</span>
+                    </div>
+                </div>
+                <div class="stats-box" style="margin: 30px auto; max-width: 400px;">
+                    <div class="stats-number">90%</div>
+                    <div class="stats-label">Dynasty Classification Accuracy</div>
+                </div>
+            </div>
+
+            <!-- Slide 18: Archaeological Discovery -->
+            <div class="slide">
+                <h2>AI-Powered Site Discovery</h2>
+                <div class="image-placeholder" style="height: 350px;">
+                    <span>[Satellite Analysis Visualization]</span>
+                </div>
+                <div class="three-column" style="margin-top: 30px;">
+                    <div class="highlight" style="text-align: center;">
+                        <h3>Peru</h3>
+                        <p>10,000+ new geoglyphs</p>
+                    </div>
+                    <div class="highlight" style="text-align: center;">
+                        <h3>UAE</h3>
+                        <p>5,000-year-old settlement</p>
+                    </div>
+                    <div class="highlight" style="text-align: center;">
+                        <h3>Egypt</h3>
+                        <p>Delta tell sites mapped</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 19: LiDAR Technology -->
+            <div class="slide">
+                <h2>LiDAR & Drone Surveying</h2>
+                <div class="two-column">
+                    <div class="image-placeholder">
+                        <span>[LiDAR Point Cloud]</span>
+                    </div>
+                    <div>
+                        <h3>Capabilities</h3>
+                        <ul>
+                            <li>Micro-relief detection</li>
+                            <li>Buried structure mapping</li>
+                            <li>Vegetation penetration</li>
+                            <li>AI-driven segmentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 20: 3D/VR Reconstructions -->
+            <div class="slide">
+                <h2>Virtual Reality Egyptology</h2>
+                <div class="image-placeholder" style="height: 400px;">
+                    <span>[VR Experience Screenshot]</span>
+                </div>
+                <div class="highlight" style="margin-top: 30px;">
+                    <p style="text-align: center; font-size: 1.3em;">
+                        "Digital twins preserve fragile heritage while enabling global access"
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 21: Grand Egyptian Museum -->
+            <div class="slide">
+                <h2>Grand Egyptian Museum Innovation</h2>
+                <div class="two-column">
+                    <div>
+                        <h3>AI-Enhanced Exhibits</h3>
+                        <ul>
+                            <li>AR headset experiences</li>
+                            <li>Object recognition apps</li>
+                            <li>Contextual overlays</li>
+                            <li>Virtual unwrapping</li>
+                        </ul>
+                    </div>
+                    <div class="image-placeholder">
+                        <span>[GEM AR Experience]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 22: Major Projects Table -->
+            <div class="slide">
+                <h2>Leading AI Egyptology Projects</h2>
+                <table class="futuristic-table">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Institution</th>
+                            <th>Technology</th>
+                            <th>Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fabricius</td>
+                            <td>Google</td>
+                            <td>CNN/ML</td>
+                            <td>Democratized learning</td>
+                        </tr>
+                        <tr>
+                            <td>THOTH AI</td>
+                            <td>Tsukuba</td>
+                            <td>LLM+RAG</td>
+                            <td>Multi-script translation</td>
+                        </tr>
+                        <tr>
+                            <td>Giza 3D</td>
+                            <td>Harvard</td>
+                            <td>Photogrammetry</td>
+                            <td>Digital preservation</td>
+                        </tr>
+                        <tr>
+                            <td>Pyramid Texts</td>
+                            <td>Brown</td>
+                            <td>NLP</td>
+                            <td>Corpus accessibility</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Slide 23: Ethical Overview -->
+            <div class="slide">
+                <h2>Navigating Ethical Challenges</h2>
+                <div class="image-placeholder" style="height: 300px;">
+                    <span>[Ethics Framework Diagram]</span>
+                </div>
+                <div class="tech-grid" style="margin-top: 30px;">
+                    <div class="tech-card">
+                        <h3>Bias</h3>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Authenticity</h3>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Ownership</h3>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Transparency</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 24: Algorithmic Bias -->
+            <div class="slide">
+                <h2>Addressing Algorithmic Bias</h2>
+                <div class="two-column">
+                    <div class="highlight">
+                        <h3>Sources</h3>
+                        <ul>
+                            <li>Training data imbalance</li>
+                            <li>Cultural stereotypes</li>
+                            <li>Colonial perspectives</li>
+                        </ul>
+                    </div>
+                    <div class="highlight">
+                        <h3>Solutions</h3>
+                        <ul>
+                            <li>Diverse datasets</li>
+                            <li>Ethics audits</li>
+                            <li>Collaborative curation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-placeholder small-image" style="margin: 30px auto;">
+                    <span>[Bias Mitigation Process]</span>
+                </div>
+            </div>
+
+            <!-- Slide 25: Decolonizing AI -->
+            <div class="slide">
+                <h2>Decolonizing AI in Egyptology</h2>
+                <div class="key-point">
+                    "From Western-Centric to Egyptian-Led Innovation"
+                </div>
+                <div class="three-column" style="margin-top: 40px;">
+                    <div class="stats-box">
+                        <h3>Local Leadership</h3>
+                        <p>Egyptian institutions at the helm</p>
+                    </div>
+                    <div class="stats-box">
+                        <h3>Data Sovereignty</h3>
+                        <p>Heritage data stays in Egypt</p>
+                    </div>
+                    <div class="stats-box">
+                        <h3>Benefit Sharing</h3>
+                        <p>Revenue returns to source</p>
+                    </div>
+                </div>
+                <div class="image-placeholder" style="margin-top: 30px; height: 250px;">
+                    <span>[Collaborative Network Map]</span>
+                </div>
+            </div>
+
+            <!-- Slide 26: Transparency & XAI -->
+            <div class="slide">
+                <h2>Explainable AI (XAI)</h2>
+                <div class="two-column">
+                    <div class="image-placeholder">
+                        <span>[XAI Visualization]</span>
+                    </div>
+                    <div>
+                        <h3>Requirements</h3>
+                        <ul>
+                            <li>Model interpretability</li>
+                            <li>Decision transparency</li>
+                            <li>Dataset provenance</li>
+                            <li>Confidence scoring</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="key-point">"From black boxes to scholarly trust"</p>
+            </div>
+
+            <!-- Slide 27: Future Vision -->
+            <div class="slide">
+                <h2>Future Horizons</h2>
+                <div class="image-placeholder" style="height: 400px;">
+                    <span>[Futuristic Egypt Visualization]</span>
+                </div>
+                <div class="highlight" style="margin-top: 30px;">
+                    <p style="text-align: center; font-size: 1.4em; font-style: italic;">
+                        "Where will AI take Egyptology in the next decade?"
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 28: Dynamic Simulations -->
+            <div class="slide">
+                <h2>Simulating Ancient Worlds</h2>
+                <div class="two-column">
+                    <div>
+                        <h3>Agent-Based Models</h3>
+                        <ul>
+                            <li>Economic systems</li>
+                            <li>Social dynamics</li>
+                            <li>Environmental impacts</li>
+                            <li>Counterfactual scenarios</li>
+                        </ul>
+                    </div>
+                    <div class="image-placeholder">
+                        <span>[Simulation Visualization]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 29: Advanced Language Models -->
+            <div class="slide">
+                <h2>Next-Gen Language Models</h2>
+                <div class="highlight">
+                    <h3>Hieroglyphic Mega-Models</h3>
+                    <div class="two-column" style="margin-top: 20px;">
+                        <div>
+                            <ul>
+                                <li>10M+ training signs</li>
+                                <li>Multimodal embeddings</li>
+                                <li>Context-aware translation</li>
+                                <li>70%+ gap prediction</li>
+                            </ul>
+                        </div>
+                        <div class="image-placeholder small-image">
+                            <span>[Model Architecture]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 30: Egypt's AI Strategy -->
+            <div class="slide">
+                <h2>Egypt's National AI Strategy</h2>
+                <div class="three-column">
+                    <div class="stats-box">
+                        <div class="stats-number">30,000</div>
+                        <div class="stats-label">AI Professionals by 2030</div>
+                    </div>
+                    <div class="stats-box">
+                        <div class="stats-number">6,000</div>
+                        <div class="stats-label">Annual Publications</div>
+                    </div>
+                    <div class="stats-box">
+                        <div class="stats-number">3</div>
+                        <div class="stats-label">Heritage AI Hubs</div>
+                    </div>
+                </div>
+                <div class="image-placeholder" style="margin-top: 30px;">
+                    <span>[National Strategy Roadmap]</span>
+                </div>
+            </div>
+
+            <!-- Slide 31: Egyptian Institutions -->
+            <div class="slide">
+                <h2>Egyptian Leadership in AI</h2>
+                <table class="futuristic-table">
+                    <thead>
+                        <tr>
+                            <th>Institution</th>
+                            <th>Initiative</th>
+                            <th>Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GEM</td>
+                            <td>Museum AI Suite</td>
+                            <td>Visitor experience</td>
+                        </tr>
+                        <tr>
+                            <td>Ain Shams</td>
+                            <td>Theban Tomb AI</td>
+                            <td>Multimodal analysis</td>
+                        </tr>
+                        <tr>
+                            <td>Cairo University</td>
+                            <td>Protect-AI</td>
+                            <td>Conservation</td>
+                        </tr>
+                        <tr>
+                            <td>Ministry</td>
+                            <td>Coptic VR</td>
+                            <td>Heritage tourism</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="key-point">
+                    "Egypt shapes its own technological future"
+                </div>
+            </div>
+
+            <!-- Slide 32: Capacity Building -->
+            <div class="slide">
+                <h2>Building Egypt's AI Workforce</h2>
+                <div class="two-column">
+                    <div class="image-placeholder">
+                        <span>[Training Programs]</span>
+                    </div>
+                    <div>
+                        <h3>Initiatives</h3>
+                        <ul>
+                            <li>DECI: 3,000 trainees</li>
+                            <li>FWD: 5,000 professionals</li>
+                            <li>Joint degree programs</li>
+                            <li>International fellowships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 33: Action Items -->
+            <div class="slide">
+                <h2>Charting the Path Forward</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>Data Sharing</h3>
+                        <p>Open standards & repositories</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Ethics First</h3>
+                        <p>Guidelines & review boards</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Education</h3>
+                        <p>Interdisciplinary programs</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Collaboration</h3>
+                        <p>Global-local partnerships</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 34: Conclusion -->
+            <div class="slide">
+                <h2>The Future is Collaborative</h2>
+                <div class="highlight">
+                    <h3 style="text-align: center;">AI = Augmentation, Not Replacement</h3>
+                    <p style="text-align: center; font-size: 1.3em; margin-top: 20px;">
+                        "The nuanced judgment and creative intuition of Egyptologists<br>
+                        remain irreplaceable in our quest to understand the past"
+                    </p>
+                </div>
+                <div class="image-placeholder" style="margin-top: 40px; height: 300px;">
+                    <span>[Human-AI Collaboration]</span>
+                </div>
+            </div>
+
+            <!-- Slide 35: Thank You -->
+            <div class="slide title-slide">
+                <h1 class="glow-text">Thank You</h1>
+                <div class="image-placeholder" style="margin: 40px 0; height: 300px;">
+                    <span>[Closing Visual]</span>
+                </div>
+                <p style="font-size: 1.8em;">Questions & Discussion</p>
+                <div style="margin-top: 40px; text-align: center;">
+                    <p>Contact: [Your Email]</p>
+                    <p>Resources: [Your Website]</p>
+                    <p style="margin-top: 20px; font-size: 0.9em; color: #888;">
+                        #AIEgyptology #DigitalHeritage #FutureOfArchaeology
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="previousSlide()">◀ Previous</button>
+            <button onclick="nextSlide()">Next ▶</button>
+        </div>
+
+        <div class="slide-number">
+            <span id="current-slide">1</span> / <span id="total-slides">35</span>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].classList.add('prev');
+            
+            currentSlide = (n + totalSlides) % totalSlides;
+            
+            slides[currentSlide].classList.remove('prev');
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            document.getElementById('progress').style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
+            
+            // Add staggered animations
+            const slideContent = slides[currentSlide].querySelectorAll('h1, h2, h3, p, li, table, .tech-card, .stats-box, .highlight, .image-placeholder');
+            slideContent.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 80);
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            }
+            if (e.key === 'f' || e.key === 'F') {
+                document.documentElement.requestFullscreen();
+            }
+            if (e.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+        });
+
+        // Touch navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) previousSlide();
+        });
+
+        // Mouse wheel navigation
+        let scrollTimeout;
+        document.addEventListener('wheel', (e) => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (e.deltaY > 0) nextSlide();
+                else previousSlide();
+            }, 100);
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Add floating particles effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '2px';
+            particle.style.height = '2px';
+            particle.style.background = '#9d4edd';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.opacity = Math.random();
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            document.body.appendChild(particle);
+
+            const duration = Math.random() * 3000 + 2000;
+            particle.animate([
+                { transform: 'translateY(0) translateX(0)', opacity: particle.style.opacity },
+                { transform: `translateY(-${window.innerHeight}px) translateX(${(Math.random() - 0.5) * 100}px)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'linear'
+            }).onfinish = () => particle.remove();
+        }
+
+        setInterval(createParticle, 300);
+    </script>
+</body>
+</html>
