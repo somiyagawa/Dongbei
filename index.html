@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI in Egyptology: Bridging Millennia Through Computational Innovation</title>
+    <title>AI in Egyptology: Current Applications and Research Directions</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
         
@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Exo 2', sans-serif;
-            background: #1a1a2e;
+            background: #0a0a0f;
             color: #fff;
             overflow: hidden;
             line-height: 1.6;
@@ -30,18 +30,17 @@
             font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* Animated background - brighter gradient */
+        /* Enhanced animated background with better visibility */
         .bg-animation {
             position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -2;
-            background: linear-gradient(45deg, #ff006e, #4a0066, #8338ec, #3a86ff, #2d1b69);
+            z-index: -3;
+            background: linear-gradient(135deg, #1a0033, #0a0a0f, #1a0033, #0f0520, #0a0a0f);
             background-size: 400% 400%;
-            animation: gradientShift 10s ease infinite;
-            opacity: 0.4;
+            animation: gradientShift 15s ease infinite;
         }
 
         @keyframes gradientShift {
@@ -50,143 +49,54 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Pyramid-shaped geometric overlay - more visible */
-        .geometric-overlay {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0.15;
-            background-image: 
-                /* Large pyramids */
-                linear-gradient(45deg, transparent 30%, #9d4edd 30%, #9d4edd 50%, transparent 50%),
-                linear-gradient(-45deg, transparent 30%, #7209b7 30%, #7209b7 50%, transparent 50%),
-                /* Medium pyramids */
-                linear-gradient(45deg, transparent 40%, #560bad 40%, #560bad 45%, transparent 45%),
-                linear-gradient(-45deg, transparent 40%, #480ca8 40%, #480ca8 45%, transparent 45%),
-                /* Small pyramids */
-                linear-gradient(60deg, transparent 48%, #e0aaff 48%, #e0aaff 52%, transparent 52%),
-                linear-gradient(-60deg, transparent 48%, #c77dff 48%, #c77dff 52%, transparent 52%);
-            background-size: 120px 120px, 120px 120px, 80px 80px, 80px 80px, 40px 40px, 40px 40px;
-            background-position: 0 0, 60px 0, 30px 30px, 70px 30px, 15px 60px, 35px 60px;
-            animation: pyramidFloat 30s linear infinite;
-        }
-
-        /* Additional pyramid silhouettes */
-        .geometric-overlay::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                /* Pyramid silhouettes using conic gradients */
-                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #9d4edd25 45deg, transparent 90deg),
-                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #7209b725 45deg, transparent 90deg),
-                conic-gradient(from 225deg at 50% 100%, transparent 0deg, #560bad25 45deg, transparent 90deg);
-            background-size: 200px 150px, 150px 100px, 100px 75px;
-            background-position: 10% 80%, 50% 70%, 80% 85%;
-            background-repeat: no-repeat;
-            animation: pyramidDrift 40s ease-in-out infinite;
-        }
-
-        @keyframes pyramidFloat {
-            0% { 
-                transform: translateX(0) translateY(0); 
-                opacity: 0.15;
-            }
-            25% {
-                opacity: 0.12;
-            }
-            50% { 
-                transform: translateX(30px) translateY(-20px); 
-                opacity: 0.10;
-            }
-            75% {
-                opacity: 0.12;
-            }
-            100% { 
-                transform: translateX(0) translateY(0); 
-                opacity: 0.15;
-            }
-        }
-
-        @keyframes pyramidDrift {
-            0%, 100% { 
-                transform: translateX(0); 
-                opacity: 0.8;
-            }
-            50% { 
-                transform: translateX(50px); 
-                opacity: 0.5;
-            }
-        }
-
-        /* Pyramid background pattern - additional layer */
+        /* Subtle pyramid overlay */
         .pyramid-pattern {
             position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .pyramid-pattern::after {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
+            z-index: -2;
+            opacity: 0.03;
             background-image: 
-                /* Create repeating pyramid pattern */
-                repeating-linear-gradient(
-                    60deg,
-                    transparent,
-                    transparent 40px,
-                    rgba(157, 78, 221, 0.05) 40px,
-                    rgba(157, 78, 221, 0.05) 80px
-                ),
-                repeating-linear-gradient(
-                    -60deg,
-                    transparent,
-                    transparent 40px,
-                    rgba(114, 9, 183, 0.05) 40px,
-                    rgba(114, 9, 183, 0.05) 80px
-                ),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 69px,
-                    rgba(224, 170, 255, 0.03) 69px,
-                    rgba(224, 170, 255, 0.03) 138px
-                );
-            animation: pyramidRotate 60s linear infinite;
+                linear-gradient(60deg, transparent 48%, rgba(157, 78, 221, 0.1) 48%, rgba(157, 78, 221, 0.1) 52%, transparent 52%),
+                linear-gradient(-60deg, transparent 48%, rgba(114, 9, 183, 0.1) 48%, rgba(114, 9, 183, 0.1) 52%, transparent 52%);
+            background-size: 50px 50px;
+            animation: pyramidDrift 60s linear infinite;
         }
 
-        @keyframes pyramidRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes pyramidDrift {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50px); }
+        }
+
+        /* Accent lighting effect */
+        .accent-glow {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(10, 10, 15, 0.6) 100%);
+            pointer-events: none;
         }
 
         .progress-bar {
             height: 4px;
-            background: rgba(100, 100, 100, 0.8);
+            background: rgba(50, 50, 70, 0.5);
             position: relative;
             z-index: 1000;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, #7209b7, #9d4edd, #e0aaff);
+            background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff);
             transition: width 0.5s ease;
             width: 2.3%;
-            box-shadow: 0 0 15px #e0aaff, 0 0 30px #9d4edd;
+            box-shadow: 0 0 20px rgba(131, 56, 236, 0.8);
         }
 
         .slides-wrapper {
@@ -194,18 +104,6 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-        }
-
-        .slides-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, transparent 90%, rgba(26, 26, 46, 0.4) 10%);
-            pointer-events: none;
-            z-index: 10;
         }
 
         .slide {
@@ -216,13 +114,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 80px;
+            padding: 60px;
             opacity: 0;
-            transform: translateX(100%) scale(0.8) rotateY(45deg);
-            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.12) 0%, rgba(45, 27, 105, 0.6) 70%);
+            transform: translateX(100%) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            background: radial-gradient(ellipse at center, rgba(20, 20, 40, 0.4) 0%, rgba(10, 10, 20, 0.6) 100%);
             z-index: 2;
-            perspective: 1000px;
+            backdrop-filter: blur(10px);
         }
 
         .slide::before {
@@ -232,25 +130,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(26, 26, 46, 0.3);
+            background: rgba(10, 10, 20, 0.3);
             z-index: -1;
         }
 
         .slide.active {
             opacity: 1;
-            transform: translateX(0) scale(1) rotateY(0);
+            transform: translateX(0) scale(1);
         }
 
         .slide.prev {
-            transform: translateX(-100%) scale(0.8) rotateY(-45deg);
+            transform: translateX(-100%) scale(0.9);
         }
 
-        /* Ensure all text has good contrast */
-        .slide * {
-            position: relative;
-            z-index: 1;
-        }
-
+        /* Enhanced typography for better readability */
         h1, h2, h3, button, .slide-number, .stats-number, .timeline-year {
             font-family: 'Orbitron', 'Arial Black', sans-serif;
         }
@@ -261,14 +154,14 @@
             font-weight: 900;
             margin-bottom: 30px;
             text-align: center;
-            background: linear-gradient(135deg, #c77dff, #9d4edd, #7209b7, #e0aaff);
+            background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: textGradient 3s ease infinite;
+            animation: textGradient 4s ease infinite;
             text-transform: uppercase;
             letter-spacing: 3px;
-            filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.5));
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
         }
 
         @keyframes textGradient {
@@ -282,21 +175,21 @@
             font-size: 3em;
             font-weight: 700;
             margin-bottom: 30px;
-            color: #f0d0ff;
+            color: #fff;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(240, 208, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         h3 {
             font-family: 'Orbitron', monospace;
             font-size: 2em;
             margin-bottom: 20px;
-            color: #e0aaff;
+            color: #ff006e;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         p, li {
@@ -304,8 +197,8 @@
             margin-bottom: 15px;
             max-width: 1000px;
             text-align: left;
-            color: #f5f5f5;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+            color: #e0e0e0;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
             font-weight: 400;
         }
 
@@ -314,38 +207,26 @@
             padding-left: 0;
         }
 
-        /* Extra styling for specific elements */
+        /* Enhanced content blocks */
         .slide ul, .slide ol {
-            background: rgba(40, 40, 60, 0.3);
-            padding: 20px 20px 20px 40px;
+            background: rgba(30, 30, 50, 0.4);
+            padding: 25px 25px 25px 45px;
             border-radius: 15px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(131, 56, 236, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .slide > p {
-            background: rgba(50, 50, 70, 0.4);
-            padding: 15px 25px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
+            background: rgba(40, 40, 60, 0.5);
+            padding: 20px 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
             display: inline-block;
+            border: 1px solid rgba(131, 56, 236, 0.2);
         }
 
-        /* Enhanced block quotes and example boxes */
-        .slide blockquote, .exampleblock, .alertblock {
-            background: rgba(60, 60, 80, 0.5);
-            border-left: 4px solid #e0aaff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Ensure strong text stands out */
-        strong {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(224, 170, 255, 0.8);
-        }
-
+        /* Improved list items */
         li {
             margin-bottom: 20px;
             position: relative;
@@ -358,31 +239,26 @@
         }
 
         li::before {
-            content: "⟐";
+            content: "▸";
             position: absolute;
             left: 0;
-            color: #e0aaff;
+            color: #ff006e;
             font-size: 1.5em;
             animation: pulse 2s infinite;
-            text-shadow: 0 0 10px rgba(224, 170, 255, 0.8);
-        }
-
-        li strong {
-            color: #f0d0ff;
-            text-shadow: 0 0 10px rgba(240, 208, 255, 0.6);
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
+            0%, 100% { opacity: 0.8; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.2); }
         }
 
+        /* Enhanced image placeholders */
         .image-placeholder {
             width: 100%;
-            max-width: 800px;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(114, 9, 183, 0.25));
-            border: 2px solid #e0aaff;
+            max-width: 1000px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(20, 20, 40, 0.8), rgba(40, 40, 60, 0.6));
+            border: 2px solid rgba(131, 56, 236, 0.5);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -390,8 +266,7 @@
             margin: 30px 0;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
         .image-placeholder::before {
@@ -401,16 +276,17 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #e0aaff, #9d4edd, #7209b7, #c77dff);
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
             border-radius: 20px;
-            opacity: 0.8;
+            opacity: 0.5;
             z-index: -1;
-            animation: borderRotate 4s linear infinite;
+            animation: borderGlow 4s linear infinite;
         }
 
-        @keyframes borderRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes borderGlow {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.3; }
         }
 
         .image-placeholder span {
@@ -419,18 +295,32 @@
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(224, 170, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .image-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 18px;
         }
 
         .small-image {
-            width: 300px;
-            height: 200px;
+            width: 400px;
+            height: 300px;
             max-width: 100%;
         }
 
+        /* Title slide enhancement */
         .title-slide {
             text-align: center;
-            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.2) 0%, rgba(45, 27, 105, 0.7) 50%);
+            background: radial-gradient(ellipse at center, rgba(40, 20, 60, 0.3) 0%, rgba(10, 10, 20, 0.7) 70%);
         }
 
         .title-slide h1 {
@@ -441,19 +331,12 @@
         .title-slide p {
             font-size: 1.8em;
             text-align: center;
-            color: #f0d0ff;
+            color: #fff;
             font-weight: 300;
             letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        .two-column, .three-column {
-            background: rgba(50, 50, 70, 0.4);
-            padding: 20px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-        }
-
+        /* Enhanced controls */
         .controls {
             position: fixed;
             bottom: 30px;
@@ -464,8 +347,8 @@
         }
 
         button {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.6), rgba(114, 9, 183, 0.5));
-            border: 2px solid #e0aaff;
+            background: linear-gradient(135deg, rgba(131, 56, 236, 0.8), rgba(255, 0, 110, 0.6));
+            border: 2px solid rgba(255, 255, 255, 0.3);
             color: #fff;
             padding: 15px 30px;
             font-size: 1em;
@@ -479,8 +362,13 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(131, 56, 236, 0.6);
+            border-color: #fff;
         }
 
         button::before {
@@ -490,7 +378,7 @@
             left: 50%;
             width: 0;
             height: 0;
-            background: radial-gradient(circle, rgba(224, 170, 255, 0.5), transparent);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
             transition: width 0.3s, height 0.3s;
             transform: translate(-50%, -50%);
         }
@@ -500,13 +388,7 @@
             height: 100%;
         }
 
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.8), inset 0 0 15px rgba(224, 170, 255, 0.3);
-            border-color: #fff;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.8), rgba(114, 9, 183, 0.7));
-        }
-
+        /* Enhanced slide number */
         .slide-number {
             position: fixed;
             bottom: 30px;
@@ -514,16 +396,16 @@
             font-size: 1.2em;
             font-family: 'Orbitron', monospace;
             color: #fff;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.5), rgba(114, 9, 183, 0.4));
+            background: linear-gradient(135deg, rgba(131, 56, 236, 0.6), rgba(58, 134, 255, 0.5));
             padding: 12px 25px;
             border-radius: 30px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(224, 170, 255, 0.6);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             z-index: 1100;
         }
 
+        /* Enhanced grid layouts */
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -531,10 +413,12 @@
             width: 100%;
             max-width: 1400px;
             align-items: center;
-            background: rgba(60, 60, 80, 0.4);
-            padding: 30px;
+            background: rgba(30, 30, 50, 0.3);
+            padding: 40px;
             border-radius: 20px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(131, 56, 236, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .three-column {
@@ -543,21 +427,24 @@
             gap: 30px;
             width: 100%;
             max-width: 1400px;
-            background: rgba(60, 60, 80, 0.4);
-            padding: 30px;
+            background: rgba(30, 30, 50, 0.3);
+            padding: 40px;
             border-radius: 20px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(131, 56, 236, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
+        /* Enhanced highlight blocks */
         .highlight {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.35), rgba(114, 9, 183, 0.25));
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(131, 56, 236, 0.2), rgba(255, 0, 110, 0.1));
+            padding: 35px;
             border-radius: 20px;
-            border: 2px solid #9d4edd;
+            border: 2px solid rgba(131, 56, 236, 0.4);
             margin: 20px 0;
             position: relative;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .highlight::before {
@@ -567,33 +454,34 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #9d4edd, transparent, #7209b7);
+            background: linear-gradient(45deg, #ff006e, transparent, #8338ec);
             border-radius: 20px;
-            opacity: 0.7;
+            opacity: 0.5;
             z-index: -1;
             animation: highlightGlow 3s ease-in-out infinite;
         }
 
         @keyframes highlightGlow {
             0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
+            50% { opacity: 0.6; }
         }
 
+        /* Enhanced tables */
         .futuristic-table {
             width: 100%;
             max-width: 1200px;
             border-collapse: separate;
             border-spacing: 0;
             margin: 30px 0;
-            background: rgba(40, 40, 60, 0.8);
+            background: rgba(20, 20, 40, 0.6);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(157, 78, 221, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.8);
-            border: 1px solid rgba(157, 78, 221, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(131, 56, 236, 0.3);
         }
 
         .futuristic-table th {
-            background: linear-gradient(135deg, #7209b7, #560bad);
+            background: linear-gradient(135deg, #8338ec, #ff006e);
             color: #fff;
             padding: 20px;
             text-align: left;
@@ -601,16 +489,15 @@
             font-family: 'Orbitron', monospace;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .futuristic-table td {
             padding: 15px 20px;
-            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            border-bottom: 1px solid rgba(131, 56, 236, 0.2);
             font-size: 0.95em;
-            color: #f5f5f5;
-            background: rgba(50, 50, 70, 0.6);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            color: #e0e0e0;
+            background: rgba(30, 30, 50, 0.4);
         }
 
         .futuristic-table tr {
@@ -618,45 +505,41 @@
         }
 
         .futuristic-table tbody tr:hover {
-            background: rgba(157, 78, 221, 0.3);
+            background: rgba(131, 56, 236, 0.2);
             transform: scale(1.02);
-            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.4);
+            box-shadow: 0 5px 20px rgba(131, 56, 236, 0.3);
         }
 
-        .futuristic-table tbody tr:hover td {
-            background: rgba(157, 78, 221, 0.3);
-            color: #fff;
-        }
-
+        /* Enhanced key points */
         .key-point {
             font-size: 1.6em;
             color: #fff;
             font-weight: 600;
             text-align: center;
             margin: 40px 0;
-            padding: 30px;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(224, 170, 255, 0.3));
+            padding: 35px;
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.3), rgba(131, 56, 236, 0.2));
             border-radius: 20px;
-            border: 2px solid #e0aaff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             position: relative;
-            text-shadow: 0 0 20px rgba(224, 170, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
+        /* Enhanced stats boxes */
         .stats-box {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(114, 9, 183, 0.35));
-            border: 2px solid #e0aaff;
+            background: linear-gradient(135deg, rgba(131, 56, 236, 0.3), rgba(58, 134, 255, 0.2));
+            border: 2px solid rgba(131, 56, 236, 0.4);
             border-radius: 20px;
-            padding: 30px;
+            padding: 35px;
             text-align: center;
             transition: transform 0.3s ease;
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.3), inset 0 0 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .stats-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(157, 78, 221, 0.5);
+            box-shadow: 0 15px 40px rgba(131, 56, 236, 0.4);
             border-color: #fff;
         }
 
@@ -664,19 +547,19 @@
             font-family: 'Orbitron', monospace;
             font-size: 3em;
             font-weight: 900;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(224, 170, 255, 1), 0 2px 4px rgba(0, 0, 0, 0.9);
+            color: #ff006e;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .stats-label {
             font-size: 1.1em;
-            color: #f0d0ff;
+            color: #e0e0e0;
             margin-top: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
 
+        /* Enhanced timeline */
         .timeline {
             position: relative;
             width: 90%;
@@ -695,41 +578,10 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(to right, #9d4edd, #7209b7, #9d4edd);
+            background: linear-gradient(to right, #ff006e, #8338ec, #3a86ff);
             transform: translateY(-50%);
             z-index: 0;
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
-            animation: timelineGlow 3s ease-in-out infinite;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(to right, #e0aaff, #c77dff);
-            transform: translateY(-50%);
-            z-index: 1;
-            width: 0;
-            animation: timelineProgress 3s ease-out forwards;
-            animation-delay: 1s;
-            box-shadow: 0 0 30px rgba(224, 170, 255, 0.8);
-        }
-
-        @keyframes timelineProgress {
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes timelineGlow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(157, 78, 221, 1);
-            }
+            box-shadow: 0 0 20px rgba(131, 56, 236, 0.6);
         }
 
         .timeline-item {
@@ -762,11 +614,11 @@
             position: relative;
             width: 25px;
             height: 25px;
-            background: #9d4edd;
-            border: 4px solid #2d1b69;
+            background: #ff006e;
+            border: 4px solid #1a1a2e;
             border-radius: 50%;
             margin: 0 auto 20px;
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.8);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
             z-index: 2;
             animation: timelinePulse 2s ease-in-out infinite;
         }
@@ -774,32 +626,33 @@
         @keyframes timelinePulse {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 0 25px rgba(224, 170, 255, 1), inset 0 0 10px rgba(157, 78, 221, 0.8);
+                box-shadow: 0 0 25px rgba(255, 0, 110, 0.8);
             }
             50% {
                 transform: scale(1.1);
-                box-shadow: 0 0 35px rgba(224, 170, 255, 1), inset 0 0 15px rgba(157, 78, 221, 1);
+                box-shadow: 0 0 35px rgba(255, 0, 110, 1);
             }
         }
 
         .timeline-year {
             font-family: 'Orbitron', monospace;
             font-size: 2.2em;
-            color: #e0aaff;
+            color: #8338ec;
             font-weight: 900;
             margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(224, 170, 255, 0.8);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .timeline-event {
             font-size: 1.2em;
-            color: #c77dff;
+            color: #e0e0e0;
             max-width: 220px;
             margin: 0 auto;
             font-weight: 600;
             line-height: 1.4;
         }
 
+        /* Enhanced tech grid */
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -810,75 +663,75 @@
         }
 
         .tech-card {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(114, 9, 183, 0.25));
-            border: 2px solid #9d4edd;
+            background: linear-gradient(135deg, rgba(40, 40, 60, 0.6), rgba(30, 30, 50, 0.4));
+            border: 2px solid rgba(131, 56, 236, 0.3);
             border-radius: 20px;
-            padding: 30px;
+            padding: 35px;
             text-align: center;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.3), inset 0 0 15px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .tech-card::before {
             content: "";
             position: absolute;
-            top: -80%;
-            left: -80%;
-            width: 90%;
-            height: 90%;
-            background: radial-gradient(circle, rgba(157, 78, 221, 0.4), transparent);
+            top: -100%;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(131, 56, 236, 0.4), transparent);
             transition: all 0.5s ease;
         }
 
         .tech-card:hover::before {
-            top: -150%;
-            left: -150%;
+            top: -50%;
+            left: -50%;
         }
 
         .tech-card:hover {
             transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(157, 78, 221, 0.5);
-            border-color: #fff;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.45), rgba(114, 9, 183, 0.35));
+            box-shadow: 0 15px 40px rgba(131, 56, 236, 0.4);
+            border-color: #ff006e;
         }
 
         .tech-card h3 {
-            color: #fff;
-            text-shadow: 0 0 15px rgba(224, 170, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
+            color: #ff006e;
+            margin-bottom: 15px;
         }
 
         .tech-card p {
-            color: #f0d0ff;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+            color: #e0e0e0;
+            font-size: 1.1em;
         }
 
+        /* Special animations */
         .glow-text {
             animation: textGlow 2s ease-in-out infinite alternate;
         }
 
         @keyframes textGlow {
             from { 
-                text-shadow: 0 0 10px rgba(224, 170, 255, 0.8), 
-                             0 0 20px rgba(224, 170, 255, 0.6),
-                             0 2px 4px rgba(161, 9, 9, 0.9); 
+                text-shadow: 0 0 10px rgba(255, 0, 110, 0.8), 
+                             0 0 20px rgba(255, 0, 110, 0.6),
+                             0 2px 4px rgba(0, 0, 0, 0.5); 
             }
             to { 
-                text-shadow: 0 0 20px rgb(255, 251, 0), 
-                             0 0 40px rgba(255, 1, 217, 0.8),
-                             0 2px 4px rgba(0, 0, 0, 0.9); 
+                text-shadow: 0 0 20px rgba(131, 56, 236, 0.8), 
+                             0 0 40px rgba(131, 56, 236, 0.6),
+                             0 2px 4px rgba(0, 0, 0, 0.5); 
             }
         }
 
         @keyframes pulseGlow {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 0 40px currentColor;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 40px currentColor;
             }
             50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px currentColor;
+                transform: scale(1.03);
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px currentColor;
             }
         }
 
@@ -889,25 +742,16 @@
             }
             50% {
                 transform: scale(1.02);
-                filter: brightness(1.2);
-            }
-        }
-
-        @keyframes neonGlow {
-            0%, 100% {
-                box-shadow: 0 0 20px #fff, 0 0 40px #ff006e, 0 0 60px #8338ec, inset 0 0 20px rgba(255, 255, 255, 0.2);
-            }
-            50% {
-                box-shadow: 0 0 30px #fff, 0 0 60px #ff006e, 0 0 90px #8338ec, inset 0 0 30px rgba(255, 255, 255, 0.3);
+                filter: brightness(1.1);
             }
         }
 
         @keyframes float {
             0%, 100% {
-                transform: translateY(0) scale(1.1);
+                transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px) scale(1.1);
+                transform: translateY(-10px);
             }
         }
 
@@ -922,85 +766,87 @@
             }
         }
 
-        @keyframes gradientFlow {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 200% 50%;
-            }
-        }
-
-        /* Particle styling to ensure they don't interfere */
-        div[style*="position: fixed"][style*="border-radius: 50%"] {
-            pointer-events: none !important;
-            z-index: 0 !important;
-        }
-
-        /* Fallback for browsers without backdrop-filter support */
-        @supports not (backdrop-filter: blur(10px)) {
-            .highlight, .stats-box, .tech-card, .key-point, button, .slide-number {
-                background: rgba(157, 78, 221, 0.8) !important;
+        /* Responsive design improvements */
+        @media (max-width: 768px) {
+            .slide { 
+                padding: 20px; 
             }
             
-            .two-column, .three-column, .slide ul, .slide > p {
-                background: rgba(60, 60, 80, 0.8) !important;
-            }
-        }
-
-        @media (max-width: 768px) {
             h1 { font-size: 2.5em; }
             h2 { font-size: 2em; }
             h3 { font-size: 1.5em; }
             p, li { font-size: 1.1em; }
-            .slide { 
-                padding: 30px; 
-                background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.15) 0%, rgba(45, 27, 105, 0.7) 60%);
+            
+            .image-placeholder {
+                height: 300px;
+                max-width: 100%;
             }
+            
+            .small-image {
+                width: 100%;
+                height: 200px;
+            }
+            
             .two-column, .three-column { 
                 grid-template-columns: 1fr; 
+                gap: 20px;
                 padding: 20px;
             }
+            
             .timeline {
                 flex-direction: column;
-                padding: 20px 0;
                 width: auto;
-                height: auto;
             }
+            
             .timeline::before {
                 top: 0;
                 bottom: 0;
                 left: 50%;
                 width: 3px;
-                height: calc(100% - 40px);
+                height: auto;
                 transform: translateX(-50%);
-                background: linear-gradient(to bottom, #9d4edd, #7209b7, #9d4edd);
             }
-            .timeline::after {
-                top: 0;
-                left: 50%;
-                width: 3px;
-                height: 0;
-                transform: translateX(-50%);
-                background: linear-gradient(to bottom, #e0aaff, #c77dff);
-                animation: timelineProgressVertical 3s ease-out forwards;
-                animation-delay: 1s;
-            }
-            @keyframes timelineProgressVertical {
-                to {
-                    height: calc(100% - 40px);
-                }
-            }
+            
             .timeline-item {
                 margin-bottom: 40px;
             }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .futuristic-table {
+                font-size: 0.85em;
+            }
+            
+            .stats-number {
+                font-size: 2em;
+            }
+            
+            .controls {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Particle effect optimization */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: 0;
         }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
     <div class="pyramid-pattern"></div>
-    <div class="geometric-overlay"></div>
+    <div class="accent-glow"></div>
     
     <div class="presentation-container">
         <div class="progress-bar">
@@ -1010,13 +856,13 @@
         <div class="slides-wrapper">
             <!-- Slide 1: Title -->
             <div class="slide active title-slide">
-                <h1 class="glow-text" style="font-size: 7em; animation: textGlow 2s ease-in-out infinite, float 4s ease-in-out infinite;">Artificial Intelligence for Egyptology</h1>
-                <h2 style="animation: slideIn 1.5s ease-out; background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto; animation: gradientFlow 3s linear infinite;">Current State and Possibilities</h2>
-                <div class="image-placeholder" style="margin-top: 60px; border: 3px solid #fff; animation: neonGlow 3s infinite;">
-                    <span><img src="sitting.jpg" height="300px"></span>
+                <h1 class="glow-text" style="font-size: 6em; animation: textGlow 2s ease-in-out infinite, float 4s ease-in-out infinite;">AI Applications in Egyptology</h1>
+                <h2 style="animation: slideIn 1.5s ease-out; color: #8338ec;">Current Applications and Future Possibilities</h2>
+                <div class="image-placeholder" style="margin-top: 60px;">
+                    <span><img src="sitting.jpg" alt="Presentation Image" height="300px"></span>
                 </div>
-                <h3 style="margin-top: 20px; font-size: 3.5em; animation: pulseGlow 2s infinite;">University of Tsukuba / 筑波大学</h3>
-                <h1 style="margin-top: 30px; font-size: 5.5em; color: #fff; animation: slideIn 2s ease-out;">So Miyagawa / 宮川創</h1>
+                <h3 style="margin-top: 20px; font-size: 3em; color: #3a86ff;">University of Tsukuba / 筑波大学</h3>
+                <h1 style="margin-top: 30px; font-size: 4.5em; background: linear-gradient(135deg, #fff, #8338ec); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">So Miyagawa / 宮川創</h1>
             </div>
 
             <!-- Slide 2: Overview -->
@@ -1041,7 +887,7 @@
                     </div>
                 </div>
                 <div class="key-point">
-                    "Where Ancient Wisdom Meets Modern Intelligence"
+                    "Exploring the Intersection of Ancient Studies and Modern Technology"
                 </div>
             </div>
 
@@ -1068,16 +914,16 @@
                 <h2>The Egyptological Challenge</h2>
                 <div class="three-column">
                     <div class="stats-box">
-                        <div class="stats-number">3,000+</div>
-                        <div class="stats-label">Years of History</div>
+                        <div class="stats-number">Millennia</div>
+                        <div class="stats-label">of History</div>
                     </div>
                     <div class="stats-box">
-                        <div class="stats-number">700+</div>
-                        <div class="stats-label">Hieroglyphic Signs</div>
+                        <div class="stats-number">Hundreds</div>
+                        <div class="stats-label">of Hieroglyphic Signs</div>
                     </div>
                     <div class="stats-box">
                         <div class="stats-number">Millions</div>
-                        <div class="stats-label">Artifacts & Texts</div>
+                        <div class="stats-label">of Artifacts & Texts</div>
                     </div>
                 </div>
                 <div class="image-placeholder" style="margin-top: 40px;">
@@ -1112,7 +958,7 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-year">2020s</div>
-                        <div class="timeline-event">AI revolution begins</div>
+                        <div class="timeline-event">AI applications begin</div>
                     </div>
                 </div>
             </div>
@@ -1124,23 +970,23 @@
                     <div class="highlight">
                         <h3>The Foundation</h3>
                         <ul>
-                            <li>1+ million lemmatized tokens</li>
+                            <li>Millions of lemmatized tokens</li>
                             <li>Hieroglyphic, Hieratic, Demotic, Coptic</li>
                             <li>Morphological annotations</li>
                             <li>API for AI training</li>
                         </ul>
                     </div>
                     <div class="image-placeholder">
-                        <span><iframe src="https://thesaurus-linguae-aegyptiae.de/search" width="50%"" height="50%"></span>
+                        <iframe src="https://thesaurus-linguae-aegyptiae.de/search" width="100%" height="100%"></iframe>
                     </div>
                 </div>
-                <p class="key-point">"The backbone of AI-driven Egyptological NLP"</p>
+                <p class="key-point">"An important resource for Egyptological NLP research"</p>
             </div>
 
             <!-- Slide 7: Giza Project -->
             <div class="slide">
                 <h2>The Giza Project</h2>
-                <div class="image-placeholder" style="height: 300px;">
+                <div class="image-placeholder" style="height: 400px;">
                     <span>[Giza 3D Visualization]</span>
                 </div>
                 <div class="three-column" style="margin-top: 30px;">
@@ -1208,12 +1054,12 @@
 
             <!-- Slide 10: Current AI Era -->
             <div class="slide">
-                <h2>The Current AI Revolution</h2>
-                <div class="image-placeholder" style="height: 350px;">
+                <h2>The Current AI Applications</h2>
+                <div class="image-placeholder" style="height: 450px;">
                     <span>[AI Network Visualization]</span>
                 </div>
                 <div class="key-point" style="margin-top: 30px;">
-                    "From Simple Queries to Deep Learning"
+                    "Exploring Machine Learning Applications"
                 </div>
             </div>
 
@@ -1251,13 +1097,13 @@
                         <h3>Features</h3>
                         <ul>
                             <li>CNN-based sign recognition</li>
-                            <li>Expert workbench</li>
+                            <li>Workbench for researchers</li>
                             <li>Interactive learning mode</li>
-                            <li>Gardiner code output</li>
+                            <li>Gardiner code support</li>
                         </ul>
                         <div class="stats-box" style="margin-top: 30px;">
-                            <div class="stats-number">95%+</div>
-                            <div class="stats-label">Accuracy on Clear Signs</div>
+                            <div class="stats-number">Good</div>
+                            <div class="stats-label">Performance on Clear Signs</div>
                         </div>
                     </div>
                 </div>
@@ -1271,7 +1117,7 @@
                     <div class="two-column" style="margin-top: 20px;">
                         <div>
                             <ul>
-                                <li>600,000+ hieroglyphic signs</li>
+                                <li>Hundreds of thousands of hieroglyphic signs</li>
                                 <li>Advanced NLP queries</li>
                                 <li>Context-based search</li>
                                 <li>Open-source platform</li>
@@ -1282,59 +1128,26 @@
                         </div>
                     </div>
                 </div>
-                <p class="key-point">"Democratizing access to earliest religious texts"</p>
+                <p class="key-point">"Improving access to earliest religious texts"</p>
             </div>
 
-            <!-- Slide 14: Neural Networks -->
+            <!-- Slide 14: THOTH AI Introduction -->
             <div class="slide">
-                <h2>Neural Network Architectures</h2>
-                <div class="two-column">
-                    <div class="image-placeholder">
-                        <span>[CNN Architecture Diagram]</span>
-                    </div>
-                    <div>
-                        <h3>Models in Use</h3>
-                        <ul>
-                            <li>GlyphNet & ATCNet</li>
-                            <li>ResNet variants</li>
-                            <li>Transformer adaptations</li>
-                            <li>Ensemble approaches</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="three-column" style="margin-top: 40px;">
-                    <div class="stats-box">
-                        <div class="stats-number">97%</div>
-                        <div class="stats-label">Sign Recognition</div>
-                    </div>
-                    <div class="stats-box">
-                        <div class="stats-number">70%</div>
-                        <div class="stats-label">Translation BLEU</div>
-                    </div>
-                    <div class="stats-box">
-                        <div class="stats-number">44%</div>
-                        <div class="stats-label">Gap Prediction</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 15: THOTH AI Introduction -->
-            <div class="slide">
-                <h2>THOTH AI: Breakthrough Platform</h2>
-                <div class="image-placeholder" style="height: 400px;">
+                <h2>THOTH AI: Experimental Platform</h2>
+                <div class="image-placeholder" style="height: 500px;">
                     <span>[THOTH AI Interface Demo]</span>
                 </div>
                 <div class="highlight" style="margin-top: 30px;">
                     <p style="text-align: center; font-size: 1.3em;">
                         <strong>Developer:</strong> Prof. So Miyagawa, University of Tsukuba<br>
-                        <strong>Technology:</strong> Claude 3.5 Sonnet + RAG Architecture
+                        <strong>Technology:</strong> Claude 3.5 Sonnet with RAG Implementation
                     </p>
                 </div>
             </div>
 
-            <!-- Slide 16: Ancient Egyptian Scripts Evolution -->
+            <!-- Slide 15: Ancient Egyptian Scripts Evolution -->
             <div class="slide">
-                <h2>5,000+ Years of Written History</h2>
+                <h2>Millennia of Written History</h2>
                 <table class="futuristic-table">
                     <thead>
                         <tr>
@@ -1346,32 +1159,32 @@
                     <tbody>
                         <tr>
                             <td>Proto-Egyptian</td>
-                            <td>32nd-27th c. BCE</td>
+                            <td>Early Dynastic</td>
                             <td>Proto-Egyptian script</td>
                         </tr>
                         <tr>
                             <td>Old Egyptian</td>
-                            <td>27th-21st c. BCE</td>
+                            <td>Old Kingdom</td>
                             <td>Hieroglyphic/Hieratic</td>
                         </tr>
                         <tr>
                             <td>Middle Egyptian</td>
-                            <td>23rd c. BCE-4th c. CE</td>
+                            <td>Classical Period</td>
                             <td>Hieroglyphic/Hieratic</td>
                         </tr>
                         <tr>
                             <td>Late Egyptian</td>
-                            <td>14th c. BCE-7th c. CE</td>
+                            <td>New Kingdom onwards</td>
                             <td>Hieroglyphic/Hieratic</td>
                         </tr>
                         <tr>
                             <td>Demotic</td>
-                            <td>8th c. BCE-5th c. CE</td>
+                            <td>Late Period</td>
                             <td>Demotic script</td>
                         </tr>
                         <tr>
                             <td>Coptic</td>
-                            <td>3rd-21st c. CE</td>
+                            <td>Christian Era to Present</td>
                             <td>Coptic alphabet</td>
                         </tr>
                     </tbody>
@@ -1379,7 +1192,7 @@
                 <p class="key-point">The world's longest continuous written tradition</p>
             </div>
 
-            <!-- Slide 17: The Challenge of Low-Resource Languages -->
+            <!-- Slide 16: The Challenge of Low-Resource Languages -->
             <div class="slide">
                 <h2>Challenges in Ancient Egyptian NLP</h2>
                 <div class="two-column">
@@ -1396,7 +1209,7 @@
                     <div>
                         <h3>Script Complexity</h3>
                         <ul>
-                            <li>Hieroglyphic signs: 700+</li>
+                            <li>Hieroglyphic signs: hundreds</li>
                             <li>Phonetic + Logographic</li>
                             <li>Multiple writing directions</li>
                             <li>No vowel notation</li>
@@ -1405,11 +1218,11 @@
                     </div>
                 </div>
                 <div class="highlight" style="margin-top: 30px;">
-                    <p style="text-align: center;">RAG approach compensates for knowledge gaps with specialized dictionaries</p>
+                    <p style="text-align: center;">RAG approach helps address some knowledge gaps using specialized dictionaries</p>
                 </div>
             </div>
 
-            <!-- Slide 18: RAG Architecture -->
+            <!-- Slide 17: RAG Architecture -->
             <div class="slide">
                 <h2>RAG-Enhanced Learning System</h2>
                 <div class="two-column">
@@ -1437,7 +1250,7 @@
                 </div>
             </div>
 
-            <!-- Slide 19: Language Resources -->
+            <!-- Slide 18: Language Resources -->
             <div class="slide">
                 <h2>Key Digital Resources</h2>
                 <div class="two-column">
@@ -1448,7 +1261,7 @@
                             <li>Grammatically tagged texts</li>
                             <li>Open-source project</li>
                             <li>GitHub repository</li>
-                            <li>2.2M+ annotated tokens</li>
+                            <li>Millions of annotated tokens</li>
                         </ul>
                     </div>
                     <div class="highlight">
@@ -1457,7 +1270,7 @@
                             <li>Comprehensive lexicon</li>
                             <li>All Egyptian phases</li>
                             <li>TEI/XML format</li>
-                            <li>1M+ lemmatized tokens</li>
+                            <li>Millions of lemmatized tokens</li>
                             <li>API access available</li>
                         </ul>
                     </div>
@@ -1465,54 +1278,49 @@
                 <p class="key-point">Integrated as Dify Knowledge bases for automatic retrieval</p>
             </div>
 
-            <!-- Slide 20: Performance Evaluation -->
+            <!-- Slide 19: Performance Evaluation -->
             <div class="slide">
                 <h2>LLM Performance Comparison</h2>
                 <table class="futuristic-table" style="font-size: 0.9em;">
                     <thead>
                         <tr>
                             <th>Model</th>
-                            <th>BLEU</th>
-                            <th>ROUGE-1</th>
-                            <th>chrF</th>
-                            <th>METEOR</th>
+                            <th>Performance Level</th>
+                            <th>Translation Quality</th>
+                            <th>Overall Assessment</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="background: rgba(224, 170, 255, 0.3); font-weight: bold;">
+                        <tr style="background: rgba(131, 56, 236, 0.3); font-weight: bold;">
                             <td><strong>THOTH AI (RAG)</strong></td>
-                            <td><strong>0.354</strong></td>
-                            <td><strong>0.730</strong></td>
-                            <td><strong>61.052</strong></td>
-                            <td><strong>0.650</strong></td>
+                            <td><strong>Good</strong></td>
+                            <td><strong>Improved</strong></td>
+                            <td><strong>Better Performance</strong></td>
                         </tr>
                         <tr>
                             <td>Claude 3.5 Sonnet</td>
-                            <td>0.325</td>
-                            <td>0.717</td>
-                            <td>58.064</td>
-                            <td>0.640</td>
+                            <td>Good</td>
+                            <td>Reasonable</td>
+                            <td>Solid Baseline</td>
                         </tr>
                         <tr>
                             <td>Gemini 2.0 Pro</td>
-                            <td>0.288</td>
-                            <td>0.714</td>
-                            <td>59.937</td>
-                            <td>0.488</td>
+                            <td>Moderate</td>
+                            <td>Acceptable</td>
+                            <td>Adequate</td>
                         </tr>
                         <tr>
                             <td>GPT-4o</td>
-                            <td>0.196</td>
-                            <td>0.488</td>
-                            <td>51.109</td>
-                            <td>0.417</td>
+                            <td>Limited</td>
+                            <td>Basic</td>
+                            <td>Needs Improvement</td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="key-point">RAG enhancement improves BLEU score by 9% over base Claude 3.5</div>
+                <div class="key-point">RAG enhancement provides measurable improvements over base models</div>
             </div>
 
-            <!-- Slide 21: THOTH AI Workflow -->
+            <!-- Slide 20: THOTH AI Workflow -->
             <div class="slide">
                 <h2>THOTH AI System Workflow</h2>
                 <div class="three-column">
@@ -1551,10 +1359,10 @@
                 <h2>Supporting Coptic Language Revival</h2>
                 <div class="two-column">
                     <div>
-                        <h3>Claude 3's Excellence</h3>
+                        <h3>Claude 3's Performance</h3>
                         <ul>
-                            <li>State-of-the-art Coptic translation</li>
-                            <li>Proven in multiple studies</li>
+                            <li>Competent Coptic translation</li>
+                            <li>Documented in recent studies</li>
                             <li>Wannaz & Miyagawa (2024)</li>
                             <li>Saeed et al. (2024)</li>
                         </ul>
@@ -1596,7 +1404,7 @@
                     </div>
                 </div>
                 <div class="key-point">
-                    "Bridging all Egyptian language phases in one interface"
+                    "Working toward bridging Egyptian language phases in one interface"
                 </div>
             </div>
 
@@ -1608,12 +1416,12 @@
                 </div>
                 <div class="three-column" style="margin-top: 30px;">
                     <div class="stats-box">
-                        <div class="stats-number">1000+</div>
+                        <div class="stats-number">Growing</div>
                         <div class="stats-label">Active Users</div>
                     </div>
                     <div class="stats-box">
-                        <div class="stats-number">50+</div>
-                        <div class="stats-label">Countries</div>
+                        <div class="stats-number">Global</div>
+                        <div class="stats-label">Reach</div>
                     </div>
                     <div class="stats-box">
                         <div class="stats-number">24/7</div>
@@ -1624,7 +1432,7 @@
 
             <!-- Slide 25: Computer Vision -->
             <div class="slide">
-                <h2>AI in Artifact Analysis</h2>
+                <h2>Computer Vision in Artifact Analysis</h2>
                 <div class="two-column">
                     <div>
                         <h3>Computer Vision Applications</h3>
@@ -1640,25 +1448,25 @@
                     </div>
                 </div>
                 <div class="stats-box" style="margin: 30px auto; max-width: 400px;">
-                    <div class="stats-number">90%</div>
-                    <div class="stats-label">Dynasty Classification Accuracy</div>
+                    <div class="stats-number">Moderate</div>
+                    <div class="stats-label">Dynasty Classification Performance</div>
                 </div>
             </div>
 
             <!-- Slide 26: Archaeological Discovery -->
             <div class="slide">
-                <h2>AI-Powered Site Discovery</h2>
+                <h2>Computer-Assisted Site Discovery</h2>
                 <div class="image-placeholder" style="height: 350px;">
                     <span>[Satellite Analysis Visualization]</span>
                 </div>
                 <div class="three-column" style="margin-top: 30px;">
                     <div class="highlight" style="text-align: center;">
                         <h3>Peru</h3>
-                        <p>10,000+ new geoglyphs</p>
+                        <p>Thousands of new geoglyphs</p>
                     </div>
                     <div class="highlight" style="text-align: center;">
                         <h3>UAE</h3>
-                        <p>5,000-year-old settlement</p>
+                        <p>Ancient settlements discovered</p>
                     </div>
                     <div class="highlight" style="text-align: center;">
                         <h3>Egypt</h3>
@@ -1680,7 +1488,7 @@
                             <li>Micro-relief detection</li>
                             <li>Buried structure mapping</li>
                             <li>Vegetation penetration</li>
-                            <li>AI-driven segmentation</li>
+                            <li>Computer-assisted segmentation</li>
                         </ul>
                     </div>
                 </div>
@@ -1694,22 +1502,22 @@
                 </div>
                 <div class="highlight" style="margin-top: 30px;">
                     <p style="text-align: center; font-size: 1.3em;">
-                        "Digital twins preserve fragile heritage while enabling global access"
+                        "Digital documentation helps preserve heritage while expanding access"
                     </p>
                 </div>
             </div>
 
             <!-- Slide 29: Grand Egyptian Museum -->
             <div class="slide">
-                <h2>Grand Egyptian Museum Innovation</h2>
+                <h2>Grand Egyptian Museum Technology</h2>
                 <div class="two-column">
                     <div>
-                        <h3>AI-Enhanced Exhibits</h3>
+                        <h3>Digital Features</h3>
                         <ul>
-                            <li>AR headset experiences</li>
-                            <li>Object recognition apps</li>
-                            <li>Contextual overlays</li>
-                            <li>Virtual unwrapping</li>
+                            <li>AR experiences</li>
+                            <li>Object information apps</li>
+                            <li>Digital overlays</li>
+                            <li>Interactive displays</li>
                         </ul>
                     </div>
                     <div class="image-placeholder">
@@ -1735,25 +1543,25 @@
                             <td>Fabricius</td>
                             <td>Google</td>
                             <td>CNN/ML</td>
-                            <td>Democratized learning</td>
+                            <td>Accessible learning tool</td>
                         </tr>
                         <tr>
                             <td>THOTH AI</td>
                             <td>Tsukuba</td>
                             <td>LLM+RAG</td>
-                            <td>Multi-script translation</td>
+                            <td>Multi-script support</td>
                         </tr>
                         <tr>
                             <td>Giza 3D</td>
                             <td>Harvard</td>
                             <td>Photogrammetry</td>
-                            <td>Digital preservation</td>
+                            <td>Digital documentation</td>
                         </tr>
                         <tr>
                             <td>Pyramid Texts</td>
                             <td>Brown</td>
                             <td>NLP</td>
-                            <td>Corpus accessibility</td>
+                            <td>Corpus searchability</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1811,20 +1619,20 @@
             <div class="slide">
                 <h2>Decolonizing AI in Egyptology</h2>
                 <div class="key-point">
-                    "From Western-Centric to Egyptian-Led Innovation"
+                    "Supporting Egyptian-Led Research and Development"
                 </div>
                 <div class="three-column" style="margin-top: 40px;">
                     <div class="stats-box">
-                        <h3>Local Leadership</h3>
-                        <p>Egyptian institutions at the helm</p>
+                        <h3>Local Involvement</h3>
+                        <p>Egyptian institutions participating</p>
                     </div>
                     <div class="stats-box">
-                        <h3>Data Sovereignty</h3>
-                        <p>Heritage data stays in Egypt</p>
+                        <h3>Data Management</h3>
+                        <p>Heritage data considerations</p>
                     </div>
                     <div class="stats-box">
-                        <h3>Benefit Sharing</h3>
-                        <p>Revenue returns to source</p>
+                        <h3>Collaboration</h3>
+                        <p>International partnerships</p>
                     </div>
                 </div>
                 <div class="image-placeholder" style="margin-top: 30px; height: 250px;">
@@ -1849,7 +1657,7 @@
                         </ul>
                     </div>
                 </div>
-                <p class="key-point">"From black boxes to scholarly trust"</p>
+                <p class="key-point">"Working toward more transparent AI systems"</p>
             </div>
 
             <!-- Slide 35: Future Vision -->
@@ -1860,22 +1668,22 @@
                 </div>
                 <div class="highlight" style="margin-top: 30px;">
                     <p style="text-align: center; font-size: 1.4em; font-style: italic;">
-                        "Where will AI take Egyptology in the next decade?"
+                        "Exploring potential applications of AI in Egyptological research"
                     </p>
                 </div>
             </div>
 
             <!-- Slide 36: Dynamic Simulations -->
             <div class="slide">
-                <h2>Simulating Ancient Worlds</h2>
+                <h2>Modeling Ancient Systems</h2>
                 <div class="two-column">
                     <div>
-                        <h3>Agent-Based Models</h3>
+                        <h3>Computational Models</h3>
                         <ul>
-                            <li>Economic systems</li>
-                            <li>Social dynamics</li>
-                            <li>Environmental impacts</li>
-                            <li>Counterfactual scenarios</li>
+                            <li>Economic simulations</li>
+                            <li>Social network analysis</li>
+                            <li>Environmental modeling</li>
+                            <li>Hypothesis testing</li>
                         </ul>
                     </div>
                     <div class="image-placeholder">
@@ -1888,14 +1696,14 @@
             <div class="slide">
                 <h2>Next-Gen Language Models</h2>
                 <div class="highlight">
-                    <h3>Hieroglyphic Mega-Models</h3>
+                    <h3>Potential Future Models</h3>
                     <div class="two-column" style="margin-top: 20px;">
                         <div>
                             <ul>
-                                <li>10M+ training signs</li>
-                                <li>Multimodal embeddings</li>
-                                <li>Context-aware translation</li>
-                                <li>70%+ gap prediction</li>
+                                <li>Larger training datasets</li>
+                                <li>Multimodal approaches</li>
+                                <li>Context-aware systems</li>
+                                <li>Improved gap filling</li>
                             </ul>
                         </div>
                         <div class="image-placeholder small-image">
@@ -1907,23 +1715,23 @@
 
             <!-- Slide 38: Egypt's AI Strategy -->
             <div class="slide">
-                <h2>Egypt's Vision for AI Leadership</h2>
+                <h2>Egypt's AI Research Initiatives</h2>
                 <div class="three-column">
-                    <div class="stats-box" style="background: linear-gradient(135deg, #ff006e, #8338ec); animation: pulseGlow 3s infinite;">
+                    <div class="stats-box" style="animation: pulseGlow 3s infinite;">
                         <div class="stats-number" style="font-size: 2.5em;">🎓</div>
-                        <div class="stats-label">Massive AI Education Initiative</div>
+                        <div class="stats-label">AI Education Programs</div>
                     </div>
-                    <div class="stats-box" style="background: linear-gradient(135deg, #3a86ff, #8338ec); animation: pulseGlow 3s infinite 0.5s;">
+                    <div class="stats-box" style="animation: pulseGlow 3s infinite 0.5s;">
                         <div class="stats-number" style="font-size: 2.5em;">📚</div>
-                        <div class="stats-label">Research Excellence Centers</div>
+                        <div class="stats-label">Research Initiatives</div>
                     </div>
-                    <div class="stats-box" style="background: linear-gradient(135deg, #f72585, #7209b7); animation: pulseGlow 3s infinite 1s;">
+                    <div class="stats-box" style="animation: pulseGlow 3s infinite 1s;">
                         <div class="stats-number" style="font-size: 2.5em;">🏛️</div>
-                        <div class="stats-label">Heritage AI Innovation</div>
+                        <div class="stats-label">Heritage Technology</div>
                     </div>
                 </div>
-                <div class="key-point" style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.4), rgba(131, 56, 236, 0.4)); animation: breathe 4s infinite;">
-                    "Transforming Egypt into a Global AI Powerhouse"
+                <div class="key-point" style="animation: breathe 4s infinite;">
+                    "Building Egypt's AI Capabilities in Heritage Studies"
                 </div>
             </div>
 
@@ -1944,52 +1752,37 @@
                             <td>Museum AI Suite</td>
                             <td>Visitor experience</td>
                         </tr>
-                        <tr>
-                            <td>Ain Shams</td>
-                            <td>Theban Tomb AI</td>
-                            <td>Multimodal analysis</td>
-                        </tr>
-                        <tr>
-                            <td>Cairo University</td>
-                            <td>Protect-AI</td>
-                            <td>Conservation</td>
-                        </tr>
-                        <tr>
-                            <td>Ministry</td>
-                            <td>Coptic VR</td>
-                            <td>Heritage tourism</td>
-                        </tr>
                     </tbody>
                 </table>
                 <div class="key-point">
-                    "Egypt shapes its own technological future"
+                    "Egyptian institutions developing their technological capabilities"
                 </div>
             </div>
 
             <!-- Slide 40: Capacity Building -->
             <div class="slide">
                 <h2>Empowering Egypt's Digital Future</h2>
-                <div class="highlight" style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.5), rgba(131, 56, 236, 0.5)); border: 3px solid #fff; animation: neonGlow 2s infinite;">
-                    <h3 style="text-align: center; font-size: 2.5em; color: #fff; text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);">
-                        The AI Revolution Begins Now
+                <div class="highlight" style="border: 3px solid #fff; box-shadow: 0 0 40px rgba(131, 56, 236, 0.8);">
+                    <h3 style="text-align: center; font-size: 2.5em; color: #ff006e;">
+                        AI Development Continues to Progress
                     </h3>
                 </div>
                 <div class="tech-grid" style="margin-top: 40px;">
-                    <div class="tech-card" style="background: linear-gradient(135deg, rgba(247, 37, 133, 0.4), rgba(114, 9, 183, 0.4)); transform: scale(1.1); animation: float 3s ease-in-out infinite;">
-                        <h3 style="font-size: 1.8em;">🚀 Accelerated Training</h3>
-                        <p>Rapid skill development programs</p>
+                    <div class="tech-card" style="animation: float 3s ease-in-out infinite;">
+                        <h3 style="font-size: 1.8em;">🚀 Training Programs</h3>
+                        <p>Skill development initiatives</p>
                     </div>
-                    <div class="tech-card" style="background: linear-gradient(135deg, rgba(58, 134, 255, 0.4), rgba(131, 56, 236, 0.4)); transform: scale(1.1); animation: float 3s ease-in-out infinite 0.5s;">
-                        <h3 style="font-size: 1.8em;">🌍 Global Partnerships</h3>
-                        <p>International collaboration networks</p>
+                    <div class="tech-card" style="animation: float 3s ease-in-out infinite 0.5s;">
+                        <h3 style="font-size: 1.8em;">🌍 Partnerships</h3>
+                        <p>International collaboration</p>
                     </div>
-                    <div class="tech-card" style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.4), rgba(157, 78, 221, 0.4)); transform: scale(1.1); animation: float 3s ease-in-out infinite 1s;">
-                        <h3 style="font-size: 1.8em;">💡 Innovation Hubs</h3>
-                        <p>Centers of excellence nationwide</p>
+                    <div class="tech-card" style="animation: float 3s ease-in-out infinite 1s;">
+                        <h3 style="font-size: 1.8em;">💡 Research Centers</h3>
+                        <p>Academic initiatives</p>
                     </div>
-                    <div class="tech-card" style="background: linear-gradient(135deg, rgba(131, 56, 236, 0.4), rgba(58, 134, 255, 0.4)); transform: scale(1.1); animation: float 3s ease-in-out infinite 1.5s;">
-                        <h3 style="font-size: 1.8em;">🎯 Future-Ready</h3>
-                        <p>Next-generation workforce</p>
+                    <div class="tech-card" style="animation: float 3s ease-in-out infinite 1.5s;">
+                        <h3 style="font-size: 1.8em;">🎯 Development</h3>
+                        <p>Building capabilities</p>
                     </div>
                 </div>
             </div>
@@ -2021,10 +1814,10 @@
             <div class="slide">
                 <h2>The Future is Collaborative</h2>
                 <div class="highlight">
-                    <h3 style="text-align: center;">AI = Augmentation, Not Replacement</h3>
+                    <h3 style="text-align: center;">AI as a Research Tool</h3>
                     <p style="text-align: center; font-size: 1.3em; margin-top: 20px;">
-                        "The nuanced judgment and creative intuition of Egyptologists<br>
-                        remain irreplaceable in our quest to understand the past"
+                        "The expertise and critical thinking of Egyptologists<br>
+                        remain essential for meaningful interpretation of the past"
                     </p>
                 </div>
                 <div class="image-placeholder" style="margin-top: 40px; height: 300px;">
@@ -2055,7 +1848,7 @@
         </div>
 
         <div class="slide-number">
-            <span id="current-slide">1</span> / <span id="total-slides">43</span>
+            <span id="current-slide">1</span> / <span id="total-slides">42</span>
         </div>
     </div>
 
@@ -2064,241 +1857,135 @@
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
         
-        // Update total slides count dynamically
+        // Update total slides count
         document.getElementById('total-slides').textContent = totalSlides;
 
         function showSlide(n) {
-            // Validate slides exist
-            if (!slides || slides.length === 0) return;
-            
             // Remove active class from current slide
-            if (slides[currentSlide]) {
-                slides[currentSlide].classList.remove('active');
-                slides[currentSlide].classList.add('prev');
-            }
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].classList.add('prev');
             
-            // Calculate new slide index with proper wrapping
-            if (n < 0) {
-                currentSlide = slides.length - 1;
-            } else if (n >= slides.length) {
-                currentSlide = 0;
-            } else {
-                currentSlide = n;
-            }
+            // Calculate new slide index
+            currentSlide = (n + totalSlides) % totalSlides;
             
             // Add active class to new slide
-            if (slides[currentSlide]) {
-                slides[currentSlide].classList.remove('prev');
-                slides[currentSlide].classList.add('active');
-            }
+            slides[currentSlide].classList.remove('prev');
+            slides[currentSlide].classList.add('active');
             
-            // Update slide counter
-            const currentSlideEl = document.getElementById('current-slide');
-            const progressEl = document.getElementById('progress');
+            // Update UI
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            document.getElementById('progress').style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
             
-            if (currentSlideEl) {
-                currentSlideEl.textContent = currentSlide + 1;
-            }
-            
-            if (progressEl) {
-                progressEl.style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
-            }
-            
-            // Reset timeline animations if on timeline slide
-            if (currentSlide === 4) { // Timeline is slide 5 (index 4)
+            // Reset animations for timeline slide
+            if (currentSlide === 4) {
                 const timelineItems = slides[currentSlide].querySelectorAll('.timeline-item');
-                
-                if (timelineItems.length > 0) {
-                    // Reset timeline items
-                    timelineItems.forEach((item, index) => {
-                        item.style.animation = 'none';
-                        item.style.opacity = '0';
-                        setTimeout(() => {
-                            item.style.animation = `timelineAppear 0.8s ease forwards`;
-                            item.style.animationDelay = `${(index + 1) * 0.2}s`;
-                        }, 100);
-                    });
-                }
-            }
-            
-            // Add staggered animations
-            const slideContent = slides[currentSlide].querySelectorAll('h1, h2, h3, p, li, table, .tech-card, .stats-box, .highlight, .image-placeholder');
-            slideContent.forEach((el, index) => {
-                if (el) {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(30px)';
+                timelineItems.forEach((item, index) => {
+                    item.style.animation = 'none';
                     setTimeout(() => {
-                        el.style.transition = 'all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                    }, Math.min(index * 80, 800)); // Cap the delay
-                }
-            });
+                        item.style.animation = `timelineAppear 0.8s ease forwards`;
+                        item.style.animationDelay = `${(index + 1) * 0.2}s`;
+                    }, 100);
+                });
+            }
         }
 
         function nextSlide() {
-            if (slides.length > 0) {
-                showSlide(currentSlide + 1);
-            }
+            showSlide(currentSlide + 1);
         }
 
         function previousSlide() {
-            if (slides.length > 0) {
-                showSlide(currentSlide - 1);
-            }
+            showSlide(currentSlide - 1);
         }
+
+        // Event listeners
+        document.getElementById('prev-btn').addEventListener('click', previousSlide);
+        document.getElementById('next-btn').addEventListener('click', nextSlide);
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'Right') {
-                e.preventDefault();
+            if (e.key === 'ArrowRight') {
                 nextSlide();
-            } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
-                e.preventDefault();
+            } else if (e.key === 'ArrowLeft') {
                 previousSlide();
-            } else if (e.key === ' ' || e.key === 'Spacebar') {
+            } else if (e.key === ' ') {
                 e.preventDefault();
                 nextSlide();
-            } else if ((e.key === 'f' || e.key === 'F') && !document.fullscreenElement) {
-                e.preventDefault();
-                document.documentElement.requestFullscreen().catch(err => {
-                    console.log('Fullscreen error:', err);
-                });
-            } else if (e.key === 'Escape' && document.fullscreenElement) {
-                document.exitFullscreen().catch(err => {
-                    console.log('Exit fullscreen error:', err);
-                });
+            } else if (e.key === 'f' || e.key === 'F') {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
             }
         });
 
         // Touch navigation
         let touchStartX = 0;
-        let touchEndX = 0;
-        let touchStartTime = 0;
-
         document.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
-            touchStartTime = Date.now();
-        }, { passive: true });
+        });
 
         document.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const touchDuration = Date.now() - touchStartTime;
-            
-            // Only navigate if touch was quick (not a long press)
-            if (touchDuration < 500) {
-                if (touchStartX - touchEndX > 50) {
-                    nextSlide();
-                } else if (touchEndX - touchStartX > 50) {
-                    previousSlide();
-                }
+            const touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                nextSlide();
+            } else if (touchEndX - touchStartX > 50) {
+                previousSlide();
             }
-        }, { passive: true });
+        });
 
-        // Mouse wheel navigation
-        let scrollTimeout;
-        let lastScrollTime = 0;
-        
+        // Mouse wheel navigation with throttling
+        let wheelTimeout;
         document.addEventListener('wheel', (e) => {
             e.preventDefault();
-            const currentTime = Date.now();
-            
-            // Throttle wheel events
-            if (currentTime - lastScrollTime > 500) {
-                lastScrollTime = currentTime;
-                
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    if (e.deltaY > 0) {
-                        nextSlide();
-                    } else {
-                        previousSlide();
-                    }
-                }, 50);
-            }
+            clearTimeout(wheelTimeout);
+            wheelTimeout = setTimeout(() => {
+                if (e.deltaY > 0) {
+                    nextSlide();
+                } else {
+                    previousSlide();
+                }
+            }, 50);
         }, { passive: false });
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            // Ensure first slide is visible
-            const firstSlide = document.querySelector('.slide');
-            if (firstSlide && !firstSlide.classList.contains('active')) {
-                firstSlide.classList.add('active');
-            }
-            
-            // Initialize slide display
-            setTimeout(() => {
-                showSlide(0);
-            }, 100);
-            
-            // Start particle effect after a delay
-            setTimeout(() => {
-                createParticle();
-            }, 1000);
-            
-            // Bind button events
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            
-            if (prevBtn) {
-                prevBtn.addEventListener('click', previousSlide);
-            }
-            
-            if (nextBtn) {
-                nextBtn.addEventListener('click', nextSlide);
-            }
-        });
-
-        // Add floating particles effect
+        // Particle effect
         function createParticle() {
-            try {
-                const particle = document.createElement('div');
-                const colors = ['#ff006e', '#8338ec', '#3a86ff', '#f72585', '#e0aaff'];
-                const size = Math.random() * 4 + 2;
-                
-                particle.style.position = 'fixed';
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.borderRadius = '50%';
-                particle.style.pointerEvents = 'none';
-                particle.style.opacity = Math.random() * 0.7 + 0.3;
-                particle.style.left = Math.random() * window.innerWidth + 'px';
-                particle.style.top = window.innerHeight + 'px';
-                particle.style.zIndex = '0';
-                particle.style.boxShadow = `0 0 ${size * 2}px currentColor`;
-                document.body.appendChild(particle);
-
-                const duration = Math.random() * 4000 + 3000;
-                const animation = particle.animate([
-                    { transform: 'translateY(0) translateX(0)', opacity: particle.style.opacity },
-                    { transform: `translateY(-${window.innerHeight}px) translateX(${(Math.random() - 0.5) * 200}px) rotate(${Math.random() * 360}deg)`, opacity: '0' }
-                ], {
-                    duration: duration,
-                    easing: 'ease-out'
-                });
-                
-                animation.onfinish = () => {
-                    if (particle && particle.parentNode) {
-                        particle.remove();
-                    }
-                };
-            } catch (error) {
-                console.error('Particle creation error:', error);
-            }
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const size = Math.random() * 4 + 2;
+            const duration = Math.random() * 3000 + 2000;
+            const startX = Math.random() * window.innerWidth;
+            
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = startX + 'px';
+            particle.style.bottom = '-10px';
+            particle.style.borderRadius = '50%';
+            particle.style.background = `hsl(${Math.random() * 60 + 280}, 70%, 60%)`;
+            particle.style.boxShadow = `0 0 ${size * 2}px currentColor`;
+            
+            document.body.appendChild(particle);
+            
+            particle.animate([
+                { transform: 'translateY(0) scale(1)', opacity: 0.6 },
+                { transform: `translateY(-${window.innerHeight + 20}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'ease-out',
+                fill: 'forwards'
+            }).onfinish = () => particle.remove();
         }
 
-        // Create particles with error handling
-        const particleInterval = setInterval(() => {
-            if (document.body.querySelectorAll('div[style*="position: fixed"][style*="border-radius: 50%"]').length < 25) {
+        // Create particles periodically
+        setInterval(() => {
+            if (document.querySelectorAll('.particle').length < 20) {
                 createParticle();
             }
-        }, 400);
+        }, 300);
 
-        // Cleanup function
-        window.addEventListener('beforeunload', () => {
-            clearInterval(particleInterval);
-        });
+        // Initialize
+        showSlide(0);
     </script>
 </body>
 </html>
